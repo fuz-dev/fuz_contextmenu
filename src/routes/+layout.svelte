@@ -3,6 +3,9 @@
 	import '@fuz.dev/fuz/theme.css';
 	import '@fuz.dev/fuz/prism.css';
 
+	import 'prismjs';
+	import 'prism-svelte';
+
 	import {set_devmode} from '@fuz.dev/fuz/devmode.js';
 	import DevmodeControls from '@fuz.dev/fuz/DevmodeControls.svelte';
 	import Themed from '@fuz.dev/fuz/Themed.svelte';

@@ -4,6 +4,8 @@
 	import {quintOut} from 'svelte/easing';
 	import Code from '@fuz.dev/fuz/Code.svelte';
 	import Breadcrumbs from '@fuz.dev/fuz/Breadcrumbs.svelte';
+	import ColorSchemeInput from '@fuz.dev/fuz/ColorSchemeInput.svelte';
+	import ThemeInput from '@fuz.dev/fuz/ThemeInput.svelte';
 
 	import LibraryItem from '$routes/library/LibraryItem.svelte';
 	import Contextmenu from '$lib/Contextmenu.svelte';
@@ -298,6 +300,13 @@
 			<blockquote>
 				<code>npm i -D <a href="https://www.npmjs.com/package/@fuz.dev/fuz">@fuz.dev/fuz</a></code>
 			</blockquote>
+			<div class="prose padded_xl box">
+				<h2>Color Scheme</h2>
+				<ColorSchemeInput />
+				<h2>Theme</h2>
+				<ThemeInput />
+			</div>
+
 			<Breadcrumbs>🧶</Breadcrumbs>
 		</div>
 	</Dialog>

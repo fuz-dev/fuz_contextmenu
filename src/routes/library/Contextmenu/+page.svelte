@@ -286,8 +286,8 @@
 		<div class="pane prose padded_xl box text_align_center">
 			<h1>About</h1>
 			<blockquote class="width_sm">
-				design system for plain CSS, CSS variables, and <a href="https://svelte.dev/">Svelte</a>
-				components with <a href="https://kit.svelte.dev/">SvelteKit</a> 🧶
+				contextmenu for <a href="https://svelte.dev/">Svelte</a>
+				and <a href="https://kit.svelte.dev/">SvelteKit</a> 🧶
 				<a href="https://www.fuz.dev/">www.fuz.dev</a>
 			</blockquote>
 			<p>

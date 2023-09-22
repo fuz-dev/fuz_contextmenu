@@ -1,35 +1,52 @@
 <script lang="ts">
-	import Alert from '@fuz.dev/fuz/Alert.svelte';
 	import {base} from '$app/paths';
 
-	import Header from '$routes/Header.svelte';
-	import Mreows from '$routes/Mreows.svelte';
-
-	let mreows: Array<{icon: string}> | undefined;
+	import Footer from '$routes/Footer.svelte';
 </script>
 
-<main class="prose">
-	<section class="box">
-		<Header />
-		<Alert>
-			<span slot="icon"
-				>{#if mreows}{mreows[0].icon}{:else}✨{/if}</span
-			><span
-				>hello, welcome to <a href="https://github.com/fuz-dev/template">@fuz.dev/template</a></span
-			>
-		</Alert>
-		<p>
-			here's an <a href="{base}/route">example route</a>
-		</p>
+<!-- <h1>@fuz.dev/fuz</h1> -->
+<!-- TODO publish and link the above to npm -->
+
+<div class="width_md">
+	<section>
+		<blockquote>friendly user zystem</blockquote>
 	</section>
-	<Mreows bind:mreows />
-</main>
+	<section>
+		<code class="chip"
+			>npm i -D&nbsp;<a class="chip" href="https://npmjs.com/package/@fuz.dev/fuz">@fuz.dev/fuz</a
+			></code
+		>
+	</section>
+	<section>
+		<a class="library-link panel" href="{base}/library">library</a>
+	</section>
+	<section>
+		<Footer />
+	</section>
+</div>
 
 <style>
-	main {
+	section {
+		padding: var(--spacing_xl2);
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		margin: 0 auto;
+	}
+	code {
+		display: flex;
+		align-items: center;
+		text-align: center;
+		font-size: var(--size_lg);
+		white-space: nowrap;
+	}
+	.panel {
+		padding: var(--spacing_xl2);
+		font-size: var(--size_xl);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.library-link {
+		font-size: var(--size_xl3);
 	}
 </style>

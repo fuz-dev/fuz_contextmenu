@@ -1,11 +1,16 @@
 {
-  "name": "@fuz.dev/template",
-  "private": true,
-  "description": "a static web app and Node library template with TypeScript, Svelte, SvelteKit, Vite, esbuild, Fuz, and Gro",
+  "name": "@fuz.dev/contextmenu",
+  "description": "contextmenu for Svelte and Fuz",
   "version": "0.0.1",
   "type": "module",
-  "homepage": "https://template.fuz.dev/",
-  "repository": "https://github.com/fuz-dev/template",
+  "license": "MIT",
+  "homepage": "https://contextmenu.fuz.dev/",
+  "repository": "https://github.com/fuz-dev/contextmenu",
+  "author": {
+    "name": "Ryan Atkinson",
+    "email": "mail@ryanatkn.com",
+    "url": "https://www.ryanatkn.com/"
+  },
   "engines": {
     "node": ">=20.5"
   },
@@ -60,5 +65,31 @@
         }
       }
     ]
+  },
+  "exports": {
+    "./Contextmenu.svelte": {
+      "svelte": "./dist/Contextmenu.svelte",
+      "types": "./dist/Contextmenu.svelte.d.ts"
+    },
+    "./contextmenu.js": {
+      "default": "./dist/contextmenu.js",
+      "types": "./dist/contextmenu.d.ts"
+    },
+    "./ContextmenuEntry.svelte": {
+      "svelte": "./dist/ContextmenuEntry.svelte",
+      "types": "./dist/ContextmenuEntry.svelte.d.ts"
+    },
+    "./ContextmenuLinkEntry.svelte": {
+      "svelte": "./dist/ContextmenuLinkEntry.svelte",
+      "types": "./dist/ContextmenuLinkEntry.svelte.d.ts"
+    },
+    "./ContextmenuSubmenu.svelte": {
+      "svelte": "./dist/ContextmenuSubmenu.svelte",
+      "types": "./dist/ContextmenuSubmenu.svelte.d.ts"
+    },
+    "./ContextmenuTextEntry.svelte": {
+      "svelte": "./dist/ContextmenuTextEntry.svelte",
+      "types": "./dist/ContextmenuTextEntry.svelte.d.ts"
+    }
   }
 }

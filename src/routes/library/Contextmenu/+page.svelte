@@ -292,14 +292,14 @@
 				and <a href="https://kit.svelte.dev/">SvelteKit</a> 🧶
 				<a href="https://www.fuz.dev/">www.fuz.dev</a>
 			</blockquote>
-			<p>
+			<blockquote>
 				free and open source at<br /><a href="https://github.com/fuz-dev/fuz"
 					>github.com/fuz-dev/fuz</a
 				>
-			</p>
-			<blockquote>
-				<code>npm i -D <a href="https://www.npmjs.com/package/@fuz.dev/fuz">@fuz.dev/fuz</a></code>
 			</blockquote>
+			<code class="padded_md"
+				>npm i -D <a href="https://www.npmjs.com/package/@fuz.dev/fuz">@fuz.dev/fuz</a></code
+			>
 			<div class="prose padded_xl box">
 				<h2>Color Scheme</h2>
 				<ColorSchemeInput />

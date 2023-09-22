@@ -8,6 +8,7 @@
 
 	const contextmenu = get_contextmenu();
 
+	// TODO BLOCK clean this up - use location?
 	// TODO refactor this after upgrading SvelteKit to where `$page` has `url`
 	// TODO move or upstream? rename? `printUrl`
 	const format_url = (url: string): string => {

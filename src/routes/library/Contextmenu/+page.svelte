@@ -289,8 +289,7 @@
 			<h1>About</h1>
 			<blockquote class="width_sm">
 				contextmenu for <a href="https://svelte.dev/">Svelte</a>
-				and <a href="https://kit.svelte.dev/">SvelteKit</a> 🧶
-				<a href="https://www.fuz.dev/">www.fuz.dev</a>
+				and <a href="https://www.fuz.dev/">Fuz</a>
 			</blockquote>
 			<blockquote>
 				free and open source at<br /><a href="https://github.com/fuz-dev/fuz"

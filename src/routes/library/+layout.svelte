@@ -30,13 +30,15 @@
 	<LibraryPanel>
 		<div class="prose box text_align_center">
 			<blockquote class="width_sm">
-				styles and UI components for <a href="https://svelte.dev/">Svelte</a> and
-				<a href="https://kit.svelte.dev/">SvelteKit</a>
+				contextmenu for <a href="https://svelte.dev/">Svelte</a>
+				and <a href="https://www.fuz.dev/">Fuz</a> 🧶
 			</blockquote>
 			<blockquote class="box">
 				<code>npm i -D <a href="https://www.npmjs.com/package/@fuz.dev/fuz">@fuz.dev/fuz</a></code>
 			</blockquote>
-			<a class="padded_md panel" href="https://github.com/fuz-dev/fuz">github.com/fuz-dev/fuz</a>
+			<a class="padded_md panel" href="https://github.com/fuz-dev/contextmenu"
+				>github.com/fuz-dev/contextmenu</a
+			>
 		</div>
 	</LibraryPanel>
 	<slot />

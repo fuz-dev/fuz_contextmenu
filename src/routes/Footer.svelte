@@ -10,7 +10,7 @@
 		</a>
 	</div>
 	<p>
-		<a href="https://index.fuz.dev/">index.fuz.dev</a>
+		<a href="https://docs.fuz.dev/">docs.fuz.dev</a>
 	</p>
 </footer>
 

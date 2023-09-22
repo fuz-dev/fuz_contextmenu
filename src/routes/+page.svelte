@@ -9,7 +9,7 @@
 
 <div class="width_md">
 	<section>
-		<blockquote>friendly user zystem</blockquote>
+		<blockquote>contextmenu for Svelte and Fuz</blockquote>
 	</section>
 	<section>
 		<code class="chip"

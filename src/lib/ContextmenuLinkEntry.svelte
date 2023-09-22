@@ -1,5 +1,4 @@
 <script lang="ts">
-	import {page} from '$app/stores';
 	import {strip_start} from '@grogarden/util/string.js';
 
 	import {get_contextmenu} from '$lib/contextmenu';
@@ -8,14 +7,10 @@
 
 	const contextmenu = get_contextmenu();
 
-	// TODO BLOCK clean this up - use location?
-	// TODO refactor this after upgrading SvelteKit to where `$page` has `url`
 	// TODO move or upstream? rename? `printUrl`
-	const format_url = (url: string): string => {
+	const format_url = (url: string, host: string = location.host): string => {
 		const formatted = strip_start(strip_start(url, 'https://'), 'http://');
-		return formatted.startsWith($page.url.host + '/')
-			? strip_start(formatted, $page.url.host)
-			: formatted;
+		return formatted.startsWith(host + '/') ? strip_start(formatted, host) : formatted;
 	};
 
 	$: text = format_url(href);

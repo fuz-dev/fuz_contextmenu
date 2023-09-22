@@ -7,7 +7,7 @@
 
 	const contextmenu = get_contextmenu();
 
-	// TODO move or upstream? rename? `printUrl`
+	// TODO move or upstream? rename? `print_url`?
 	const format_url = (url: string, host: string = location.host): string => {
 		const formatted = strip_start(strip_start(url, 'https://'), 'http://');
 		return formatted.startsWith(host + '/') ? strip_start(formatted, host) : formatted;

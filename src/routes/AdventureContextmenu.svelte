@@ -1,8 +1,8 @@
 <script lang="ts">
 	import ContextmenuEntry from '$lib/ContextmenuEntry.svelte';
 	import ContextmenuSubmenu from '$lib/ContextmenuSubmenu.svelte';
-	import {type HistoryItem, type Cat, to_cats_label} from '$routes/library/Contextmenu/helpers';
-	import CatContextmenu from '$routes/library/Contextmenu/CatContextmenu.svelte';
+	import {type HistoryItem, type Cat, to_cats_label} from '$routes/helpers';
+	import CatContextmenu from '$routes/CatContextmenu.svelte';
 
 	export let home_cats: Cat[];
 	export let adventure_cats: Cat[];

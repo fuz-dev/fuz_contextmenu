@@ -6,18 +6,18 @@
 	import Breadcrumbs from '@fuz.dev/fuz/Breadcrumbs.svelte';
 	import ColorSchemeInput from '@fuz.dev/fuz/ColorSchemeInput.svelte';
 	import ThemeInput from '@fuz.dev/fuz/ThemeInput.svelte';
+	import LibraryItem from '@fuz.dev/library/LibraryItem.svelte';
+	import LibraryVocab from '@fuz.dev/library/LibraryVocab.svelte';
 
-	import LibraryItem from '$routes/library/LibraryItem.svelte';
 	import Contextmenu from '$lib/Contextmenu.svelte';
 	import {createContextmenu, set_contextmenu, to_contextmenu_params} from '$lib/contextmenu';
-	import CatContextmenu from '$routes/library/Contextmenu/CatContextmenu.svelte';
-	import AppContextmenu from '$routes/library/Contextmenu/AppContextmenu.svelte';
-	import HomeContextmenu from '$routes/library/Contextmenu/HomeContextmenu.svelte';
-	import AdventureContextmenu from '$routes/library/Contextmenu/AdventureContextmenu.svelte';
-	import CatView from '$routes/library/Contextmenu/CatView.svelte';
+	import CatContextmenu from '$routes/CatContextmenu.svelte';
+	import AppContextmenu from '$routes/AppContextmenu.svelte';
+	import HomeContextmenu from '$routes/HomeContextmenu.svelte';
+	import AdventureContextmenu from '$routes/AdventureContextmenu.svelte';
+	import CatView from '$routes/CatView.svelte';
 	import Dialog from '@fuz.dev/fuz/Dialog.svelte';
-	import LibraryVocab from '$routes/library/LibraryVocab.svelte';
-	import type {Cat, CatPosition, HistoryItem} from '$routes/library/Contextmenu/helpers';
+	import type {Cat, CatPosition, HistoryItem} from '$routes/helpers';
 
 	const LIBRARY_ITEM_NAME = 'Contextmenu';
 

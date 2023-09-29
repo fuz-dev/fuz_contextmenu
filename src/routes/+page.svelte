@@ -5,7 +5,7 @@
 	import ContextmenuTome from '$routes/ContextmenuTome.svelte';
 
 	const pkg_npm_url = 'https://npmjs.com/package/@fuz.dev/fuz_contextmenu';
-	const pkg_name = '@fuz.dev/fuz_library';
+	const pkg_name = '@fuz.dev/fuz_contextmenu';
 	const pkg_repo_url = 'https://github.com/fuz-dev/fuz_contextmenu';
 	const pkg_org_url = 'https://github.com/fuz-dev';
 	const pkg_website_url = 'https://www.fuz.dev/';

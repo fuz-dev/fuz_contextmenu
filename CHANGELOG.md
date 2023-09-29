@@ -1,5 +1,11 @@
 # @fuz.dev/fuz_contextmenu
 
+## 0.3.0
+
+### Minor Changes
+
+- 1de07ff: upgrade deps
+
 ## 0.2.0
 
 ### Minor Changes

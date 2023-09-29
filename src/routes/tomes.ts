@@ -1,8 +1,8 @@
-import {init_tome, type TomeWithComponent} from '@fuz.dev/fuz_library/tome.js';
+import {init_tome, type Tome} from '@fuz.dev/fuz_library/tome.js';
 
 import Contextmenu from '$lib/Contextmenu.svelte';
 
-export const tomes: TomeWithComponent[] = [
+export const tomes: Tome[] = [
 	{
 		name: 'Contextmenu',
 		slug: 'Contextmenu',

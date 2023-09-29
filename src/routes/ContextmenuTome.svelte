@@ -236,7 +236,7 @@
 					><code>'contextmenu'</code> event</a
 				>
 				because iOS does not support this web standard as of July 2023 as described in
-				<a href="https://bugs.webkit.org/show_bug.cgi?id=213953">this WebKit bug report</a>. Our
+				<a href="https://bugs.webkit.org/show_bug.cgi?id=213953">this WebKit bug report</a>. The Fuz
 				implementation therefore has hacks that may cause corner case bugs on various devices and
 				browsers - for more see
 				<a href="https://github.com/fuz-dev/fuz/pull/319">this PR</a>.
@@ -245,13 +245,13 @@
 				When you rightclick or longpress, we search for behaviors defined with <code
 					>use:contextmenu.action</code
 				> starting from the target element up to the root of the DOM tree. If any behaviors are found,
-				our contextmenu opens, with the caveats below. The contextmenu displays the available behaviors
+				the Fuz contextmenu opens, with the caveats below. The contextmenu displays the available behaviors
 				which you can then activate. If no behaviors are found, the system contextmenu opens.
 			</p>
 			<h4>Devices with a mouse</h4>
 			<ul>
-				<li>rightclick opens our contextmenu and not the system contextmenu</li>
-				<li>rightclick on our contextmenu opens the system contextmenu</li>
+				<li>rightclick opens the Fuz contextmenu and not the system contextmenu</li>
+				<li>rightclick on the Fuz contextmenu opens the system contextmenu</li>
 				<li>rightclick while holding Shift opens the system contextmenu</li>
 				<li>
 					keyboard navigation and activation should work similarly to the W3C <a
@@ -261,8 +261,8 @@
 			</ul>
 			<h4>Touch devices</h4>
 			<ul>
-				<li>longpress opens our contextmenu and not the system contextmenu</li>
-				<li>longpress on our contextmenu (two longpresses) opens the system contextmenu</li>
+				<li>longpress opens the Fuz contextmenu and not the system contextmenu</li>
+				<li>longpress on the Fuz contextmenu (two longpresses) opens the system contextmenu</li>
 				<li>
 					double-tap-and-hold (aka tap-then-longpress) opens the system contextmenu or performs
 					other default behavior like selecting text - does not work for cases where the first tap

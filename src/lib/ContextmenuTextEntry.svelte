@@ -1,6 +1,6 @@
 <script lang="ts">
 	import ContextmenuEntry from '$lib/ContextmenuEntry.svelte';
-	import type {ContextmenuRun} from '$lib/contextmenu';
+	import type {ContextmenuRun} from '$lib/contextmenu.js';
 
 	// TODO consider making this the implicit default entry, so consumers can simply declare `{run, content}`
 

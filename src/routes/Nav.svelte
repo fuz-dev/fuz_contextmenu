@@ -1,11 +1,11 @@
 <script lang="ts">
 	import {page} from '$app/stores';
 	import {is_iframed} from '@grogarden/util/dom.js';
-	import Breadcrumbs from '@fuz.dev/fuz/Breadcrumbs.svelte';
+	import Breadcrumb from '@fuz.dev/fuz_library/Breadcrumb.svelte';
 
 	// TODO delete, use `LibraryHeader` when it's ready
 
-	// TODO this could be a prop passed by `Breadcrumbs`, is commonly needed
+	// TODO this could be a prop passed by `Breadcrumb`, is commonly needed
 	$: ({pathname} = $page.url);
 	$: root = pathname === '/';
 
@@ -18,13 +18,13 @@
 
 {#if enabled}
 	<nav class:root>
-		<Breadcrumbs>
+		<Breadcrumb>
 			{#if root}
 				<span>@fuz.dev/fuz_contextmenu</span>
 			{:else}
 				<span class="icon">🧶</span>
 			{/if}
-		</Breadcrumbs>
+		</Breadcrumb>
 	</nav>
 {/if}
 

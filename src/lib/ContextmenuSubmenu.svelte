@@ -3,7 +3,7 @@
 		get_contextmenu,
 		get_contextmenu_dimensions,
 		set_contextmenu_dimensions,
-	} from '$lib/contextmenu';
+	} from '$lib/contextmenu.js';
 
 	const contextmenu = get_contextmenu();
 

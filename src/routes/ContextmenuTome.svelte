@@ -6,17 +6,17 @@
 	import ColorSchemeInput from '@fuz.dev/fuz/ColorSchemeInput.svelte';
 	import ThemeInput from '@fuz.dev/fuz/ThemeInput.svelte';
 	import TomeDetails from '@fuz.dev/fuz_library/TomeDetails.svelte';
-	import Dialog from '@fuz.dev/fuz/Dialog.svelte';
+	import Dialog from '@fuz.dev/fuz_dialog/Dialog.svelte';
 	import {get_tome} from '@fuz.dev/fuz_library/tome.js';
 
 	import Contextmenu from '$lib/Contextmenu.svelte';
-	import {create_contextmenu, set_contextmenu, to_contextmenu_params} from '$lib/contextmenu';
+	import {create_contextmenu, set_contextmenu, to_contextmenu_params} from '$lib/contextmenu.js';
 	import CatContextmenu from '$routes/CatContextmenu.svelte';
 	import AppContextmenu from '$routes/AppContextmenu.svelte';
 	import HomeContextmenu from '$routes/HomeContextmenu.svelte';
 	import AdventureContextmenu from '$routes/AdventureContextmenu.svelte';
 	import CatView from '$routes/CatView.svelte';
-	import type {Cat, CatPosition, HistoryItem} from '$routes/helpers';
+	import type {Cat, CatPosition, HistoryItem} from '$routes/helpers.js';
 
 	const LIBRARY_ITEM_NAME = 'Contextmenu';
 
@@ -297,12 +297,14 @@
 				and <a href="https://www.fuz.dev/">Fuz</a>
 			</blockquote>
 			<blockquote>
-				free and open source at<br /><a href="https://github.com/fuz-dev/fuz"
+				free and open source at<br /><a href="https://github.com/fuz-dev/fuz_contextmenu"
 					>github.com/fuz-dev/fuz</a
 				>
 			</blockquote>
 			<code class="padded_md spaced"
-				>npm i -D <a href="https://www.npmjs.com/package/@fuz.dev/fuz">@fuz.dev/fuz</a></code
+				>npm i -D <a href="https://www.npmjs.com/package/@fuz.dev/fuz_contextmenu"
+					>@fuz.dev/fuz_contextmenu</a
+				></code
 			>
 			<div class="prose padded_xl box">
 				<h2>Color Scheme</h2>

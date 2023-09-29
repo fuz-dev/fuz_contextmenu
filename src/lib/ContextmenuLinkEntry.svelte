@@ -1,7 +1,7 @@
 <script lang="ts">
 	import {strip_start} from '@grogarden/util/string.js';
 
-	import {get_contextmenu} from '$lib/contextmenu';
+	import {get_contextmenu} from '$lib/contextmenu.js';
 
 	export let href: string;
 

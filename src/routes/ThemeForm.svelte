@@ -2,9 +2,9 @@
 	import {createEventDispatcher} from 'svelte';
 	import {swallow} from '@grogarden/util/dom.js';
 	import {render_theme_style, type ThemeVariable, type Theme} from '@fuz.dev/fuz/theme.js';
-	import Dialog from '@fuz.dev/fuz/Dialog.svelte';
-	import Code from '@fuz.dev/fuz/Code.svelte';
-	import CopyToClipboard from '@fuz.dev/fuz/CopyToClipboard.svelte';
+	import Dialog from '@fuz.dev/fuz_dialog/Dialog.svelte';
+	import Code from '@fuz.dev/fuz_code/Code.svelte';
+	import CopyToClipboard from '@fuz.dev/fuz_library/CopyToClipboard.svelte';
 
 	import ThemeVariableDetail from '$routes/ThemeVariableDetail.svelte';
 

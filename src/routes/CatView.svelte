@@ -1,5 +1,5 @@
 <script lang="ts">
-	import {get_contextmenu, type ContextmenuParams} from '$lib/contextmenu';
+	import {get_contextmenu, type ContextmenuParams} from '$lib/contextmenu.js';
 
 	export let name = 'Cat';
 	export let icon: string | null = '😺';

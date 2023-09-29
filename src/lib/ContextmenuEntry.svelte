@@ -2,7 +2,7 @@
 	import {writable} from 'svelte/store';
 	import PendingAnimation from '@fuz.dev/fuz_library/PendingAnimation.svelte';
 
-	import {get_contextmenu, type ContextmenuRun} from '$lib/contextmenu';
+	import {get_contextmenu, type ContextmenuRun} from '$lib/contextmenu.js';
 
 	export let run: ContextmenuRun;
 

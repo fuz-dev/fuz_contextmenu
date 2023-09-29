@@ -6,7 +6,7 @@
 		set_contextmenu_dimensions,
 		type ContextmenuStore,
 		open_contextmenu,
-	} from '$lib/contextmenu';
+	} from '$lib/contextmenu.js';
 
 	// TODO this is full of hacks to implement "longpress"
 	// to work around iOS not firing the `'contextmenu'` event:

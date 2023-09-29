@@ -1,7 +1,7 @@
 <script lang="ts">
 	import ContextmenuEntry from '$lib/ContextmenuEntry.svelte';
 	import ContextmenuSubmenu from '$lib/ContextmenuSubmenu.svelte';
-	import type {CatPosition, HistoryItem} from '$routes/helpers';
+	import type {CatPosition, HistoryItem} from '$routes/helpers.js';
 
 	export let name = 'Cat';
 	export let icon: string | null = '😺';

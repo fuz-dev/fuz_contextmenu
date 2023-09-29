@@ -11,7 +11,7 @@
 
 	// TODO this is a hack to hide the nav for the mural when it's iframed, what's a better way?
 	const iframed = is_iframed();
-	$: enabled = !iframed || pathname !== '/sketch/mural';
+	const enabled = !iframed;
 </script>
 
 <!-- TODO probably change to ul/li once styles are right -->

@@ -1,0 +1,339 @@
+<script lang="ts">
+	import {flip} from 'svelte/animate';
+	import {crossfade} from 'svelte/transition';
+	import {quintOut} from 'svelte/easing';
+	import Code from '@fuz.dev/fuz_code/Code.svelte';
+	import ColorSchemeInput from '@fuz.dev/fuz/ColorSchemeInput.svelte';
+	import ThemeInput from '@fuz.dev/fuz/ThemeInput.svelte';
+	import TomeDetails from '@fuz.dev/fuz_library/TomeDetails.svelte';
+	import LibraryVocab from '@fuz.dev/fuz_library/LibraryVocab.svelte';
+	import Dialog from '@fuz.dev/fuz/Dialog.svelte';
+	import {get_tome} from '@fuz.dev/fuz_library/tome.js';
+
+	import Contextmenu from '$lib/Contextmenu.svelte';
+	import {createContextmenu, set_contextmenu, to_contextmenu_params} from '$lib/contextmenu';
+	import CatContextmenu from '$routes/CatContextmenu.svelte';
+	import AppContextmenu from '$routes/AppContextmenu.svelte';
+	import HomeContextmenu from '$routes/HomeContextmenu.svelte';
+	import AdventureContextmenu from '$routes/AdventureContextmenu.svelte';
+	import CatView from '$routes/CatView.svelte';
+	import type {Cat, CatPosition, HistoryItem} from '$routes/helpers';
+
+	const LIBRARY_ITEM_NAME = 'Contextmenu';
+
+	const tome = get_tome(LIBRARY_ITEM_NAME);
+
+	// TODO should we make this optional, created by `Contextmenu`?
+	// TODO demonstrate custom layout
+	const contextmenu = createContextmenu();
+	set_contextmenu(contextmenu);
+
+	// TODO maybe this again
+	// const contextmenuError = contextmenu.error;
+	// $: if ($contextmenuError) {
+	// 	act({type: 'speak', content: '❌ error detected: ' + $contextmenuError});
+
+	const alyssa = 'Alyssa';
+	const ben = 'Ben';
+
+	const INITIAL_POSITION: CatPosition = 'home';
+	let alyssa_position: CatPosition = INITIAL_POSITION;
+	let ben_position: CatPosition = INITIAL_POSITION;
+
+	$: alyssa_icon = alyssa_position === ben_position ? '😺' : '😾';
+	$: ben_icon = alyssa_position === ben_position ? '😸' : '😿';
+
+	let alyssa_cat: Cat;
+	let ben_cat: Cat;
+	$: alyssa_cat = {name: alyssa, icon: alyssa_icon, position: alyssa_position};
+	$: ben_cat = {name: ben, icon: ben_icon, position: ben_position};
+
+	let swapped = false;
+
+	// TODO this is weird but `animate:` needs an `each`?
+	$: ({home_cats, adventure_cats} = locate_cats([alyssa_cat, ben_cat], swapped));
+	const locate_cats = (
+		cats: Cat[],
+		swapped: boolean,
+	): {home_cats: Cat[]; adventure_cats: Cat[]} => {
+		const home_cats: Cat[] = [];
+		const adventure_cats: Cat[] = [];
+		for (const cat of cats) {
+			const list = cat.position === 'home' ? home_cats : adventure_cats;
+			if (swapped) {
+				list.unshift(cat);
+			} else {
+				list.push(cat);
+			}
+		}
+		return {home_cats, adventure_cats};
+	};
+
+	// const cats = [alyssa, ben];
+	// TODO use these
+	// const catMoods = ['😼', '😾', '😺', '😸', '😻'];
+
+	$: canReset = alyssa_position !== INITIAL_POSITION || ben_position !== INITIAL_POSITION;
+
+	const reset = () => {
+		alyssa_position = INITIAL_POSITION;
+		ben_position = INITIAL_POSITION;
+	};
+
+	let showAboutDialog = false;
+	const toggleAboutDialog = () => {
+		showAboutDialog = !showAboutDialog;
+	};
+
+	const act = (item: HistoryItem): void => {
+		switch (item.type) {
+			case 'call_cats_adventure': {
+				alyssa_position = 'adventure';
+				ben_position = 'adventure';
+				break;
+			}
+			case 'call_cats_home': {
+				alyssa_position = 'home';
+				ben_position = 'home';
+				break;
+			}
+			case 'cat_go_adventure': {
+				if (item.name === alyssa) {
+					alyssa_position = 'adventure';
+				} else if (item.name === ben) {
+					ben_position = 'adventure';
+				}
+				break;
+			}
+			case 'cat_go_home': {
+				if (item.name === alyssa) {
+					alyssa_position = 'home';
+				} else if (item.name === ben) {
+					ben_position = 'home';
+				}
+				break;
+			}
+			case 'cat_be_or_do': {
+				swapped = !swapped;
+				break;
+			}
+		}
+	};
+
+	const [send, receive] = crossfade({
+		fallback: (node, _params) => {
+			const style = getComputedStyle(node);
+			const transform = style.transform === 'none' ? '' : style.transform;
+
+			return {
+				duration: 1500,
+				easing: quintOut,
+				css: (t) => `
+					transform: ${transform} scale(${t});
+					opacity: ${t}
+				`,
+			};
+		},
+	});
+</script>
+
+<!-- TODO demonstrate usage of a custom `link_component` and `linkProps`  -->
+<Contextmenu {contextmenu} />
+
+<TomeDetails {tome} --library_panel_padding="var(--spacing_lg) 0 0 0">
+	<div
+		class="width_full box"
+		use:contextmenu.action={[
+			// you can pass multiple items in an array or a single object:
+			// simple text action with with a `run` callback and `icon`:
+			to_contextmenu_params(AppContextmenu, {toggleAboutDialog}),
+			// you can pass `null` or `undefined` for convenience:
+			null,
+			undefined,
+			canReset ? {run: reset, content: 'reset demo', icon: '↻'} : null,
+		]}
+	>
+		<section>
+			<div class="spaced">
+				<Code lang="ts" content={`const contextmenu = createContextmenu();`} />
+			</div>
+			<Code content={`<Contextmenu {contextmenu} />`} />
+		</section>
+		<section>
+			<div
+				class="position home"
+				use:contextmenu.action={to_contextmenu_params(HomeContextmenu, {
+					act,
+					home_cats,
+					adventure_cats,
+				})}
+			>
+				<div class="icon">🏠</div>
+				<div class="cats">
+					{#each home_cats as { name, icon, position } (name)}
+						<div
+							class="cat_wrapper"
+							in:receive={{key: name}}
+							out:send={{key: name}}
+							animate:flip
+							use:contextmenu.action={to_contextmenu_params(CatContextmenu, {
+								act,
+								name,
+								icon,
+								position,
+							})}
+						>
+							<CatView {name} {icon} />
+						</div>
+					{/each}
+				</div>
+			</div>
+			<div
+				class="position adventure"
+				use:contextmenu.action={to_contextmenu_params(AdventureContextmenu, {
+					act,
+					home_cats,
+					adventure_cats,
+				})}
+			>
+				<div class="icon">🌄</div>
+				<div class="cats">
+					{#each adventure_cats as { name, icon, position } (name)}
+						<div
+							class="cat_wrapper"
+							in:receive={{key: name}}
+							out:send={{key: name}}
+							animate:flip
+							use:contextmenu.action={to_contextmenu_params(CatContextmenu, {
+								act,
+								name,
+								icon,
+								position,
+							})}
+						>
+							<CatView {name} {icon} />
+						</div>
+					{/each}
+				</div>
+			</div>
+		</section>
+	</div>
+	<div class="width_md padded_md">
+		<div class="prose padded_md panel">
+			<h3>Expected behaviors</h3>
+			<p>
+				The <LibraryVocab name="Contextmenu" /> overrides the system contextmenu to provide capabilities
+				specific to your app. We explain why we break web platform expectations in
+				<a
+					href="https://github.com/feltjs/felt-server/blob/main/src/docs/known-issues.md#overriding-the-contextmenu-breaks-web-platform-expectations"
+					>this document</a
+				>.
+			</p>
+			<p>
+				On touch devices, we detect tap-and-hold (aka longpress) instead of simply overriding the
+				web's
+				<a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/contextmenu_event"
+					><code>'contextmenu'</code> event</a
+				>
+				because iOS does not support this web standard as of July 2023 as described in
+				<a href="https://bugs.webkit.org/show_bug.cgi?id=213953">this WebKit bug report</a>. The Fuz
+				implementation therefore has hacks that may cause corner case bugs on various devices and
+				browsers - for more see
+				<a href="https://github.com/fuz-dev/fuz/pull/319">this PR</a>.
+			</p>
+			<p>
+				When you rightclick or longpress, we search for behaviors defined with <code
+					>use:contextmenu.action</code
+				> starting from the target element up to the root of the DOM tree. If any behaviors are found,
+				the Fuz contextmenu opens, with the caveats below. The contextmenu displays the available behaviors
+				which you can then activate. If no behaviors are found, the system contextmenu opens.
+			</p>
+			<h4>Devices with a mouse</h4>
+			<ul>
+				<li>rightclick opens the Fuz contextmenu and not the system contextmenu</li>
+				<li>rightclick on the Fuz contextmenu opens the system contextmenu</li>
+				<li>rightclick while holding Shift opens the system contextmenu</li>
+				<li>
+					keyboard navigation and activation should work similarly to the W3C <a
+						href="https://www.w3.org/WAI/ARIA/apg/patterns/menubar/">menubar ARIA guidelines</a
+					>
+				</li>
+			</ul>
+			<h4>Touch devices</h4>
+			<ul>
+				<li>longpress opens the Fuz contextmenu and not the system contextmenu</li>
+				<li>longpress on the Fuz contextmenu (two longpresses) opens the system contextmenu</li>
+				<li>
+					double-tap-and-hold (aka tap-then-longpress) opens the system contextmenu or performs
+					other default behavior like selecting text - does not work for cases where the first tap
+					performs some action on an element, like links - use two longpresses for those cases (this
+					may need more design work, possibly adding a different gesture or a contextmenu entry for
+					touch devices that triggers the system conextmenu on the next longpress)
+				</li>
+				<li>a longpress is canceled if you move the touch past a threshold before it triggers</li>
+				<li>
+					the contextmenu closes if you move past a threshold without lifting the longpress touch
+					that opened it
+				</li>
+				<li>
+					gives haptic feedback on open with <a
+						href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate"
+						><code>navigator.vibrate</code></a
+					>
+					(may remain broken due to the iOS longpress workaround, see
+					<a href="https://github.com/fuz-dev/fuz/pull/319">this PR</a>)
+				</li>
+			</ul>
+		</div>
+	</div>
+</TomeDetails>
+
+{#if showAboutDialog}
+	<Dialog on:close={() => (showAboutDialog = false)}>
+		<div class="pane prose padded_xl box text_align_center">
+			<h1>About</h1>
+			<blockquote class="width_sm">
+				contextmenu for <a href="https://svelte.dev/">Svelte</a>
+				and <a href="https://www.fuz.dev/">Fuz</a>
+			</blockquote>
+			<blockquote>
+				free and open source at<br /><a href="https://github.com/fuz-dev/fuz"
+					>github.com/fuz-dev/fuz</a
+				>
+			</blockquote>
+			<code class="padded_md spaced"
+				>npm i -D <a href="https://www.npmjs.com/package/@fuz.dev/fuz">@fuz.dev/fuz</a></code
+			>
+			<div class="prose padded_xl box">
+				<h2>Color Scheme</h2>
+				<ColorSchemeInput />
+				<h2>Theme</h2>
+				<ThemeInput />
+			</div>
+		</div>
+	</Dialog>
+{/if}
+
+<style>
+	section {
+		margin-bottom: var(--spacing_xl4);
+	}
+	.position {
+		border-radius: var(--border_radius);
+		background-color: var(--bg);
+		display: flex;
+	}
+	.position .icon {
+		font-size: var(--icon_size_xl);
+	}
+	.cats {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	.cat_wrapper {
+		display: flex;
+		flex-direction: column;
+		width: 120px;
+	}
+</style>

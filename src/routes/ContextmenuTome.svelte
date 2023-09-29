@@ -154,6 +154,9 @@
 		]}
 	>
 		<section>
+			<div class="spaced">
+				<Code lang="ts" content={`const contextmenu = createContextmenu();`} />
+			</div>
 			<Code content={`<Contextmenu {contextmenu} />`} />
 		</section>
 		<section>

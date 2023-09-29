@@ -1,29 +1,28 @@
 <script lang="ts">
+	import LibraryHeader from '@fuz.dev/fuz_library/LibraryHeader.svelte';
 	import LibraryFooter from '@fuz.dev/fuz_library/LibraryFooter.svelte';
-	import ContextmenuLibraryItem from './ContextmenuLibraryItem.svelte';
 
+	import ContextmenuTome from '$routes/ContextmenuTome.svelte';
+
+	const pkg_npm_url = 'https://npmjs.com/package/@fuz.dev/fuz_contextmenu';
+	const pkg_name = '@fuz.dev/fuz_library';
 	const pkg_repo_url = 'https://github.com/fuz-dev/fuz_contextmenu';
 	const pkg_org_url = 'https://github.com/fuz-dev';
 	const pkg_website_url = 'https://www.fuz.dev/';
 	const pkg_website_name = 'fuz.dev';
 </script>
 
-<!-- <h1>@fuz.dev/fuz</h1> -->
-<!-- TODO publish and link the above to npm -->
-
 <div class="width_md">
 	<section>
 		<blockquote>contextmenu for Svelte and Fuz</blockquote>
 	</section>
+	<div class="box">
+		<section>
+			<LibraryHeader {pkg_npm_url} {pkg_name} {pkg_repo_url} />
+		</section>
+	</div>
 	<section>
-		<code class="chip"
-			>npm i -D&nbsp;<a class="chip" href="https://npmjs.com/package/@fuz.dev/fuz_contextmenu"
-				>@fuz.dev/fuz_contextmenu</a
-			></code
-		>
-	</section>
-	<section>
-		<ContextmenuLibraryItem />
+		<ContextmenuTome />
 	</section>
 	<section>
 		<LibraryFooter {pkg_repo_url} {pkg_org_url} {pkg_website_url} {pkg_website_name} />
@@ -36,22 +35,5 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-	}
-	code {
-		display: flex;
-		align-items: center;
-		text-align: center;
-		font-size: var(--size_lg);
-		white-space: nowrap;
-	}
-	.panel {
-		padding: var(--spacing_xl2);
-		font-size: var(--size_xl);
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
-	.library-link {
-		font-size: var(--size_xl3);
 	}
 </style>

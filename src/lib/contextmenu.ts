@@ -33,9 +33,6 @@ export type ContextmenuActionParams =
  * It uses TypeScript's inferred generics for functions,
  * which do not work for plain objects as of v5.0.4.
  * `DialogParams` uses a similar strategy.
- * @param Component
- * @param props
- * @returns
  */
 export const to_contextmenu_params = <T extends SvelteComponent>(
 	component: ComponentType<T>,
@@ -126,9 +123,8 @@ export interface ContextmenuStoreOptions {
  * Creates a `contextmenu` store.
  * For external usage see `use:contextmenu.run` scattered throughout the app,
  * and for internal usage see `Contextmenu.svelte`.
- * @returns
  */
-export const createContextmenu = (options?: ContextmenuStoreOptions): ContextmenuStore => {
+export const create_contextmenu = (options?: ContextmenuStoreOptions): ContextmenuStore => {
 	const link_component = options?.link_component ?? ContextmenuLinkEntry;
 	const text_component = options?.text_component ?? ContextmenuTextEntry;
 	const initial_layout = options?.layout;
@@ -306,7 +302,7 @@ export const createContextmenu = (options?: ContextmenuStoreOptions): Contextmen
 				items: [],
 			};
 			menu.items.push(submenu);
-			set_contextmenuSubmenu(submenu);
+			set_contextmenu_submenu(submenu);
 			onDestroy(() => {
 				menu.items.length = 0;
 			});
@@ -354,12 +350,11 @@ const CONTEXTMENU_OPEN_VIBRATE_DURATION = 17;
 /**
  * Opens the contextmenu, if appropriate,
  * querying the menu items from the DOM starting at the event target.
- * @param target - The leaf element from which to open the contextmenu
- * @param x - The page X coordinate at which to open the contextmenu, typically the mouse `pageX`
- * @param y - The page Y coordinate at which to open the contextmenu, typically the mouse `pageY`
- * @param contextmenu - The contextmenu store
- * @returns A boolean indicating if the menu was opened or not.
-
+ * @param target - the leaf element from which to open the contextmenu
+ * @param x - the page X coordinate at which to open the contextmenu, typically the mouse `pageX`
+ * @param y - the page Y coordinate at which to open the contextmenu, typically the mouse `pageY`
+ * @param contextmenu - the contextmenu store
+ * @returns a boolean indicating if the menu was opened or not
  */
 export const open_contextmenu = (
 	target: HTMLElement | SVGElement,
@@ -434,7 +429,7 @@ export const set_contextmenu = (contextmenu: ContextmenuStore): ContextmenuStore
 export const get_contextmenu = (): ContextmenuStore => getContext(CONTEXTMENU_STORE_KEY);
 
 const CONTEXTMENU_STATE_KEY = Symbol();
-export const set_contextmenuSubmenu = (submenu: SubmenuState): SubmenuState =>
+export const set_contextmenu_submenu = (submenu: SubmenuState): SubmenuState =>
 	setContext(CONTEXTMENU_STATE_KEY, submenu);
 export const get_contextmenu_submenu = (): SubmenuState | undefined =>
 	getContext(CONTEXTMENU_STATE_KEY);

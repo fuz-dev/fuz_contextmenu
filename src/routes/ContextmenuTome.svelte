@@ -10,7 +10,7 @@
 	import {get_tome} from '@fuz.dev/fuz_library/tome.js';
 
 	import Contextmenu from '$lib/Contextmenu.svelte';
-	import {createContextmenu, set_contextmenu, to_contextmenu_params} from '$lib/contextmenu';
+	import {create_contextmenu, set_contextmenu, to_contextmenu_params} from '$lib/contextmenu';
 	import CatContextmenu from '$routes/CatContextmenu.svelte';
 	import AppContextmenu from '$routes/AppContextmenu.svelte';
 	import HomeContextmenu from '$routes/HomeContextmenu.svelte';
@@ -24,7 +24,7 @@
 
 	// TODO should we make this optional, created by `Contextmenu`?
 	// TODO demonstrate custom layout
-	const contextmenu = createContextmenu();
+	const contextmenu = create_contextmenu();
 	set_contextmenu(contextmenu);
 
 	// TODO maybe this again
@@ -155,7 +155,7 @@
 	>
 		<section>
 			<div class="spaced">
-				<Code lang="ts" content={`const contextmenu = createContextmenu();`} />
+				<Code lang="ts" content={`const contextmenu = create_contextmenu();`} />
 			</div>
 			<Code content={`<Contextmenu {contextmenu} />`} />
 		</section>

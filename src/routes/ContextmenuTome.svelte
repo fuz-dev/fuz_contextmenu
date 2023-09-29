@@ -298,7 +298,7 @@
 			</blockquote>
 			<blockquote>
 				free and open source at<br /><a href="https://github.com/fuz-dev/fuz_contextmenu"
-					>github.com/fuz-dev/fuz</a
+					>github.com/fuz-dev/fuz_contextmenu</a
 				>
 			</blockquote>
 			<code class="padded_md spaced"

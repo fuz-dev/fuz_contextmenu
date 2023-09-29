@@ -6,7 +6,6 @@
 	import ColorSchemeInput from '@fuz.dev/fuz/ColorSchemeInput.svelte';
 	import ThemeInput from '@fuz.dev/fuz/ThemeInput.svelte';
 	import TomeDetails from '@fuz.dev/fuz_library/TomeDetails.svelte';
-	import LibraryVocab from '@fuz.dev/fuz_library/LibraryVocab.svelte';
 	import Dialog from '@fuz.dev/fuz/Dialog.svelte';
 	import {get_tome} from '@fuz.dev/fuz_library/tome.js';
 
@@ -141,6 +140,7 @@
 <Contextmenu {contextmenu} />
 
 <TomeDetails {tome} --library_panel_padding="var(--spacing_lg) 0 0 0">
+	<div slot="header"><h2>{tome.name}</h2></div>
 	<div
 		class="width_full box"
 		use:contextmenu.action={[
@@ -222,7 +222,7 @@
 		<div class="prose padded_md panel">
 			<h3>Expected behaviors</h3>
 			<p>
-				The <LibraryVocab name="Contextmenu" /> overrides the system contextmenu to provide capabilities
+				The <code>Contextmenu</code> overrides the system contextmenu to provide capabilities
 				specific to your app. We explain why we break web platform expectations in
 				<a
 					href="https://github.com/feltjs/felt-server/blob/main/src/docs/known-issues.md#overriding-the-contextmenu-breaks-web-platform-expectations"

@@ -3,7 +3,7 @@
 	import {is_iframed} from '@grogarden/util/dom.js';
 	import Breadcrumbs from '@fuz.dev/fuz/Breadcrumbs.svelte';
 
-	// TODO rename? `PageNav`? `SiteNav`?
+	// TODO delete, use `LibraryHeader` when it's ready
 
 	// TODO this could be a prop passed by `Breadcrumbs`, is commonly needed
 	$: ({pathname} = $page.url);

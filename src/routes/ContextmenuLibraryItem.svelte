@@ -3,7 +3,6 @@
 	import {crossfade} from 'svelte/transition';
 	import {quintOut} from 'svelte/easing';
 	import Code from '@fuz.dev/fuz_code/Code.svelte';
-	import Breadcrumbs from '@fuz.dev/fuz_library/Breadcrumbs.svelte';
 	import ColorSchemeInput from '@fuz.dev/fuz/ColorSchemeInput.svelte';
 	import ThemeInput from '@fuz.dev/fuz/ThemeInput.svelte';
 	import TomeDetails from '@fuz.dev/fuz_library/TomeDetails.svelte';
@@ -299,7 +298,7 @@
 					>github.com/fuz-dev/fuz</a
 				>
 			</blockquote>
-			<code class="padded_md"
+			<code class="padded_md spaced"
 				>npm i -D <a href="https://www.npmjs.com/package/@fuz.dev/fuz">@fuz.dev/fuz</a></code
 			>
 			<div class="prose padded_xl box">
@@ -308,8 +307,6 @@
 				<h2>Theme</h2>
 				<ThemeInput />
 			</div>
-
-			<Breadcrumbs>🧶</Breadcrumbs>
 		</div>
 	</Dialog>
 {/if}

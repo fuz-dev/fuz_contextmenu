@@ -1,6 +1,6 @@
 <script lang="ts">
-	import {base} from '$app/paths';
 	import LibraryFooter from '@fuz.dev/fuz_library/LibraryFooter.svelte';
+	import ContextmenuLibraryItem from './ContextmenuLibraryItem.svelte';
 
 	const pkg_repo_url = 'https://github.com/fuz-dev/fuz_contextmenu';
 	const pkg_org_url = 'https://github.com/fuz-dev';
@@ -23,7 +23,7 @@
 		>
 	</section>
 	<section>
-		<a class="library-link panel" href="{base}/library">library</a>
+		<ContextmenuLibraryItem />
 	</section>
 	<section>
 		<LibraryFooter {pkg_repo_url} {pkg_org_url} {pkg_website_url} {pkg_website_name} />

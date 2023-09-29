@@ -20,7 +20,7 @@
 	<nav class:root>
 		<Breadcrumbs>
 			{#if root}
-				<span>@fuz.dev/contextmenu</span>
+				<span>@fuz.dev/fuz_contextmenu</span>
 			{:else}
 				<span class="icon">🧶</span>
 			{/if}

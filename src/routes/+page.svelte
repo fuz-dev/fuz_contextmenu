@@ -1,7 +1,11 @@
 <script lang="ts">
 	import {base} from '$app/paths';
+	import LibraryFooter from '@fuz.dev/fuz_library/LibraryFooter.svelte';
 
-	import Footer from '$routes/Footer.svelte';
+	const pkg_repo_url = 'https://github.com/fuz-dev/fuz_contextmenu';
+	const pkg_org_url = 'https://github.com/fuz-dev';
+	const pkg_website_url = 'https://www.fuz.dev/';
+	const pkg_website_name = 'fuz.dev';
 </script>
 
 <!-- <h1>@fuz.dev/fuz</h1> -->
@@ -13,7 +17,8 @@
 	</section>
 	<section>
 		<code class="chip"
-			>npm i -D&nbsp;<a class="chip" href="https://npmjs.com/package/@fuz.dev/fuz">@fuz.dev/fuz</a
+			>npm i -D&nbsp;<a class="chip" href="https://npmjs.com/package/@fuz.dev/fuz_contextmenu"
+				>@fuz.dev/fuz_contextmenu</a
 			></code
 		>
 	</section>
@@ -21,7 +26,7 @@
 		<a class="library-link panel" href="{base}/library">library</a>
 	</section>
 	<section>
-		<Footer />
+		<LibraryFooter {pkg_repo_url} {pkg_org_url} {pkg_website_url} {pkg_website_name} />
 	</section>
 </div>
 

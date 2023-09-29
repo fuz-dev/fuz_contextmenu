@@ -2,12 +2,14 @@
 	import {flip} from 'svelte/animate';
 	import {crossfade} from 'svelte/transition';
 	import {quintOut} from 'svelte/easing';
-	import Code from '@fuz.dev/fuz/Code.svelte';
-	import Breadcrumbs from '@fuz.dev/fuz/Breadcrumbs.svelte';
+	import Code from '@fuz.dev/fuz_code/Code.svelte';
+	import Breadcrumbs from '@fuz.dev/fuz_library/Breadcrumbs.svelte';
 	import ColorSchemeInput from '@fuz.dev/fuz/ColorSchemeInput.svelte';
 	import ThemeInput from '@fuz.dev/fuz/ThemeInput.svelte';
-	import LibraryItem from '@fuz.dev/library/LibraryItem.svelte';
-	import LibraryVocab from '@fuz.dev/library/LibraryVocab.svelte';
+	import TomeDetails from '@fuz.dev/fuz_library/TomeDetails.svelte';
+	import LibraryVocab from '@fuz.dev/fuz_library/LibraryVocab.svelte';
+	import Dialog from '@fuz.dev/fuz/Dialog.svelte';
+	import {get_tome} from '@fuz.dev/fuz_library/tome.js';
 
 	import Contextmenu from '$lib/Contextmenu.svelte';
 	import {createContextmenu, set_contextmenu, to_contextmenu_params} from '$lib/contextmenu';
@@ -16,10 +18,11 @@
 	import HomeContextmenu from '$routes/HomeContextmenu.svelte';
 	import AdventureContextmenu from '$routes/AdventureContextmenu.svelte';
 	import CatView from '$routes/CatView.svelte';
-	import Dialog from '@fuz.dev/fuz/Dialog.svelte';
 	import type {Cat, CatPosition, HistoryItem} from '$routes/helpers';
 
 	const LIBRARY_ITEM_NAME = 'Contextmenu';
+
+	const tome = get_tome(LIBRARY_ITEM_NAME);
 
 	// TODO should we make this optional, created by `Contextmenu`?
 	// TODO demonstrate custom layout
@@ -138,7 +141,7 @@
 <!-- TODO demonstrate usage of a custom `link_component` and `linkProps`  -->
 <Contextmenu {contextmenu} />
 
-<LibraryItem name={LIBRARY_ITEM_NAME} --library_panel_padding="var(--spacing_lg) 0 0 0">
+<TomeDetails {tome} --library_panel_padding="var(--spacing_lg) 0 0 0">
 	<div
 		class="width_full box"
 		use:contextmenu.action={[
@@ -281,7 +284,7 @@
 			</ul>
 		</div>
 	</div>
-</LibraryItem>
+</TomeDetails>
 
 {#if showAboutDialog}
 	<Dialog on:close={() => (showAboutDialog = false)}>

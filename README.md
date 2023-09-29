@@ -1,4 +1,4 @@
-# @fuz.dev/contextmenu
+# @fuz.dev/fuz_contextmenu
 
 > contextmenu for [Svelte](https://github.com/sveltejs/svelte)
 > and [Fuz](https://github.com/fuz-dev/fuz)

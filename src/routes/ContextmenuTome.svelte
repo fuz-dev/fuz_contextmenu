@@ -223,11 +223,9 @@
 			<h3>Expected behaviors</h3>
 			<p>
 				The <code>Contextmenu</code> overrides the system contextmenu to provide capabilities
-				specific to your app. We explain why we break web platform expectations in
-				<a
-					href="https://github.com/feltjs/felt-server/blob/main/src/docs/known-issues.md#overriding-the-contextmenu-breaks-web-platform-expectations"
-					>this document</a
-				>.
+				specific to your app.
+				<a href="https://www.felt.dev/docs/guide/user/known-issues">These docs</a> explain why Fuz breaks
+				web platform expectations.
 			</p>
 			<p>
 				On touch devices, we detect tap-and-hold (aka longpress) instead of simply overriding the

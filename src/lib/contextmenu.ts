@@ -13,10 +13,10 @@ import {to_array} from '@grogarden/util/array.js';
 import ContextmenuLinkEntry from '$lib/ContextmenuLinkEntry.svelte';
 import ContextmenuTextEntry from '$lib/ContextmenuTextEntry.svelte';
 
+// TODO rewrite with runes!!!!
+
 // TODO @multiple added this hack with Svelte 4, didn't see an open issue about it
 /* eslint-disable @typescript-eslint/no-redundant-type-constituents */
-
-// TODO uses mutation but probably shouldn't, makes the internal component API a bit worse
 
 export type ContextmenuParams<T extends SvelteComponent = SvelteComponent> = {
 	component: ComponentType<T>;

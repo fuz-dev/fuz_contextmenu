@@ -11,7 +11,6 @@
 	import Themed from '@fuz.dev/fuz/Themed.svelte';
 	import {set_tomes} from '@fuz.dev/fuz_library/tome.js';
 
-	import Nav from '$routes/Nav.svelte';
 	import {tomes} from '$routes/tomes.js';
 
 	const devmode = set_devmode(false);
@@ -20,18 +19,6 @@
 </script>
 
 <Themed>
-	<main>
-		<Nav />
-		<slot />
-	</main>
+	<slot />
 </Themed>
 <DevmodeControls {devmode} />
-
-<style>
-	main {
-		width: 100%;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
-</style>

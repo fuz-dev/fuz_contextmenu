@@ -1,37 +1,30 @@
 <script lang="ts">
-	import LibraryHeader from '@fuz.dev/fuz_library/LibraryHeader.svelte';
+	import PackageSummary from '@fuz.dev/fuz_library/PackageSummary.svelte';
 	import LibraryFooter from '@fuz.dev/fuz_library/LibraryFooter.svelte';
+	import {parse_package_meta} from '@fuz.dev/fuz_library/package.js';
 
 	import ContextmenuTome from '$routes/ContextmenuTome.svelte';
+	import package_json from '../static/.well-known/package.json'; // TODO SvelteKit warning
 
-	const pkg_npm_url = 'https://npmjs.com/package/@fuz.dev/fuz_contextmenu';
-	const pkg_name = '@fuz.dev/fuz_contextmenu';
-	const pkg_repo_url = 'https://github.com/fuz-dev/fuz_contextmenu';
-	const pkg_org_url = 'https://github.com/fuz-dev';
-	const pkg_website_url = 'https://www.fuz.dev/';
-	const pkg_website_name = 'fuz.dev';
+	const pkg = parse_package_meta(package_json.homepage, package_json);
 </script>
 
-<div class="width_md">
-	<section>
-		<blockquote>contextmenu for Svelte and Fuz</blockquote>
-	</section>
-	<div class="box">
-		<section>
-			<LibraryHeader {pkg_npm_url} {pkg_name} {pkg_repo_url} />
+<main class="width_full box">
+	<div class="width_md">
+		<section class="box">
+			<PackageSummary {pkg} />
 		</section>
+		<section>
+			<ContextmenuTome />
+		</section>
+		<section><LibraryFooter {pkg} root_url="https://www.fuz.dev/" /></section>
 	</div>
-	<section>
-		<ContextmenuTome />
-	</section>
-	<section>
-		<LibraryFooter {pkg_repo_url} {pkg_org_url} {pkg_website_url} {pkg_website_name} />
-	</section>
-</div>
+</main>
 
 <style>
 	section {
-		padding: var(--spacing_xl2);
+		margin-top: var(--spacing_xl3);
+		margin-bottom: var(--spacing_xl3);
 		display: flex;
 		flex-direction: column;
 		align-items: center;

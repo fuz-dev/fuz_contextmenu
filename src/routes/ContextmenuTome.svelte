@@ -72,16 +72,17 @@
 	// TODO use these
 	// const catMoods = ['😼', '😾', '😺', '😸', '😻'];
 
-	$: canReset = alyssa_position !== INITIAL_POSITION || ben_position !== INITIAL_POSITION;
+	$: can_reset = alyssa_position !== INITIAL_POSITION || ben_position !== INITIAL_POSITION;
 
+	// reset the tome's state
 	const reset = () => {
 		alyssa_position = INITIAL_POSITION;
 		ben_position = INITIAL_POSITION;
 	};
 
-	let showAboutDialog = false;
-	const toggleAboutDialog = () => {
-		showAboutDialog = !showAboutDialog;
+	let show_about_dialog = false;
+	const toggle_about_dialog = () => {
+		show_about_dialog = !show_about_dialog;
 	};
 
 	const act = (item: HistoryItem): void => {
@@ -144,13 +145,14 @@
 	<div
 		class="width_full box"
 		use:contextmenu.action={[
+			// params type of the action is `ContextmenuActionParams`
+			can_reset ? {run: reset, content: 'Reset tome', icon: '↻'} : null,
 			// you can pass multiple items in an array or a single object:
 			// simple text action with with a `run` callback and `icon`:
-			to_contextmenu_params(AppContextmenu, {toggleAboutDialog}),
+			to_contextmenu_params(AppContextmenu, {toggle_about_dialog}),
 			// you can pass `null` or `undefined` for convenience:
 			null,
 			undefined,
-			canReset ? {run: reset, content: 'reset demo', icon: '↻'} : null,
 		]}
 	>
 		<section>
@@ -253,7 +255,7 @@
 				<li>rightclick while holding Shift opens the system contextmenu</li>
 				<li>
 					keyboard navigation and activation should work similarly to the W3C <a
-						href="https://www.w3.org/WAI/ARIA/apg/patterns/menubar/">menubar ARIA guidelines</a
+						href="https://www.w3.org/WAI/ARIA/apg/patterns/menubar/">APG menubar pattern</a
 					>
 				</li>
 			</ul>
@@ -286,8 +288,8 @@
 	</div>
 </TomeDetails>
 
-{#if showAboutDialog}
-	<Dialog on:close={() => (showAboutDialog = false)}>
+{#if show_about_dialog}
+	<Dialog on:close={() => (show_about_dialog = false)}>
 		<div class="pane prose padded_xl box text_align_center">
 			<h1>About</h1>
 			<blockquote class="width_sm">

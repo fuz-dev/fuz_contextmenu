@@ -146,7 +146,7 @@
 		class="width_full box"
 		use:contextmenu.action={[
 			// params type of the action is `ContextmenuActionParams`
-			can_reset ? {run: reset, content: 'Reset tome', icon: '↻'} : null,
+			can_reset ? {run: reset, content: 'Reset', icon: '↻'} : null,
 			// you can pass multiple items in an array or a single object:
 			// simple text action with with a `run` callback and `icon`:
 			to_contextmenu_params(AppContextmenu, {toggle_about_dialog}),

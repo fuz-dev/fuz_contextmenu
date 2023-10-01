@@ -19,7 +19,9 @@
 		<section>
 			<ContextmenuTome />
 		</section>
-		<section><LibraryFooter {pkg} root_url="https://www.fuz.dev/" /></section>
+		<section>
+			<LibraryFooter {pkg} root_url="https://www.fuz.dev/" />
+		</section>
 	</div>
 </main>
 

@@ -3,6 +3,8 @@
 	export let fill = 'var(--color, #000)';
 	export let label = 'GitHub icon';
 	export let attrs: any = undefined;
+
+	// TODO optimized like https://github.com/spiderspace/about#icons
 </script>
 
 <svg

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="./favicon.png" />
+		<meta name="viewport" content="width=device-width" />
+		
+		<link href="./_app/immutable/assets/0.1d189a73.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/Contextmenu.39c7ca3e.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/2.62b31f4e.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.d4ed49fc.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/scheduler.f91dd4cc.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.06f9b7a7.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.24acb7b2.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.380a7e8f.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.72715515.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.170d78ef.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/Contextmenu.a84951dd.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/2.b4a83d00.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/stores.6a8f967f.js"><!-- HEAD_svelte-1qw2uo0_START --><meta name="color-scheme" content="light dark"> <meta name="theme-color" content="#257e25"> <script><!-- HTML_TAG_START -->
+	try {
+		let c = localStorage.getItem('color-scheme');
+		if (c === 'auto' || (c !== 'dark' && c !== 'light')) {
+			c = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+		}
+		if (c === 'dark') document.documentElement.classList.add('dark');
+	} catch (_) {  }
+<!-- HTML_TAG_END --></script><!-- HEAD_svelte-1qw2uo0_END -->
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">    <main class="width_full box"><div class="width_md"><section class="box svelte-pnhmge"><div class="package_summary svelte-15jcig2"> <header class="spaced"><div class="repo_name svelte-15jcig2">fuz_contextmenu</div></header> <blockquote class="spaced text_align_center">contextmenu for Svelte and Fuz</blockquote> <a class="npm_url spaced chip box svelte-15jcig2" href="https://www.npmjs.com/package/%40fuz.dev%2Ffuz_contextmenu">@fuz.dev/fuz_contextmenu</a> <div class="spaced"><a class="chip svelte-15jcig2" href="https://contextmenu.fuz.dev/">contextmenu.fuz.dev</a></div> <div class="box row spaced"><a class="chip svelte-15jcig2" href="https://github.com/fuz-dev/fuz_contextmenu">repo</a> <a class="chip svelte-15jcig2" title="version" href="https://github.com/fuz-dev/fuz_contextmenu/blob/main/CHANGELOG.md">0.3.0</a>  </div> </div> </section> <section class="svelte-pnhmge">    <div class="contextmenu_layout svelte-4twoek"></div>   <div style="display: contents; --library_panel_padding:var(--spacing_lg) 0 0 0;"><div class="library_panel panel svelte-1pvo4dg"><header class="svelte-t6np8o"><div slot="header"><h2>Contextmenu</h2></div></header> <div class="width_full box"><section class="svelte-1ev7njy"><div class="spaced"><pre class=" svelte-1nyqt33"><code class="svelte-1nyqt33"><!-- HTML_TAG_START --><span class="token keyword">const</span> contextmenu <span class="token operator">=</span> <span class="token function">create_contextmenu</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><!-- HTML_TAG_END --></code></pre></div> <pre class=" svelte-1nyqt33"><code class="svelte-1nyqt33"><!-- HTML_TAG_START --><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Contextmenu</span> <span class="token language-javascript"><span class="token punctuation">{</span>contextmenu<span class="token punctuation">}</span></span> <span class="token punctuation">/></span></span><!-- HTML_TAG_END --></code></pre></section> <section class="svelte-1ev7njy"><div class="position home svelte-1ev7njy"><div class="icon svelte-1ev7njy" data-svelte-h="svelte-wrhrra">🏠</div> <div class="cats svelte-1ev7njy"><div class="cat_wrapper svelte-1ev7njy"> <span class="cat svelte-ahpr4l has-icon"><span class="icon svelte-ahpr4l">😺</span><span class="name svelte-ahpr4l">Alyssa</span> </span> </div><div class="cat_wrapper svelte-1ev7njy"> <span class="cat svelte-ahpr4l has-icon"><span class="icon svelte-ahpr4l">😸</span><span class="name svelte-ahpr4l">Ben</span> </span> </div></div></div> <div class="position adventure svelte-1ev7njy"><div class="icon svelte-1ev7njy" data-svelte-h="svelte-l980ua">🌄</div> <div class="cats svelte-1ev7njy"></div></div></section></div> <div class="width_md padded_md" data-svelte-h="svelte-a9t75w"><div class="prose padded_md panel"><h3>Expected behaviors</h3> <p>The <code>Contextmenu</code> overrides the system contextmenu to provide capabilities
+				specific to your app.
+				<a href="https://www.felt.dev/docs/guide/user/known-issues">These docs</a> explain why Fuz breaks
+				web platform expectations.</p> <p>On touch devices, we detect tap-and-hold (aka longpress) instead of simply overriding the
+				web&#39;s
+				<a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/contextmenu_event"><code>&#39;contextmenu&#39;</code> event</a>
+				because iOS does not support this web standard as of July 2023 as described in
+				<a href="https://bugs.webkit.org/show_bug.cgi?id=213953">this WebKit bug report</a>. The Fuz
+				implementation therefore has hacks that may cause corner case bugs on various devices and
+				browsers - for more see
+				<a href="https://github.com/fuz-dev/fuz/pull/319">this PR</a>.</p> <p>When you rightclick or longpress, we search for behaviors defined with <code>use:contextmenu.action</code> starting from the target element up to the root of the DOM tree. If any behaviors are found,
+				the Fuz contextmenu opens, with the caveats below. The contextmenu displays the available behaviors
+				which you can then activate. If no behaviors are found, the system contextmenu opens.</p> <h4>Devices with a mouse</h4> <ul><li>rightclick opens the Fuz contextmenu and not the system contextmenu</li> <li>rightclick on the Fuz contextmenu opens the system contextmenu</li> <li>rightclick while holding Shift opens the system contextmenu</li> <li>keyboard navigation and activation should work similarly to the W3C <a href="https://www.w3.org/WAI/ARIA/apg/patterns/menubar/">menubar ARIA guidelines</a></li></ul> <h4>Touch devices</h4> <ul><li>longpress opens the Fuz contextmenu and not the system contextmenu</li> <li>longpress on the Fuz contextmenu (two longpresses) opens the system contextmenu</li> <li>double-tap-and-hold (aka tap-then-longpress) opens the system contextmenu or performs
+					other default behavior like selecting text - does not work for cases where the first tap
+					performs some action on an element, like links - use two longpresses for those cases (this
+					may need more design work, possibly adding a different gesture or a contextmenu entry for
+					touch devices that triggers the system conextmenu on the next longpress)</li> <li>a longpress is canceled if you move the touch past a threshold before it triggers</li> <li>the contextmenu closes if you move past a threshold without lifting the longpress touch
+					that opened it</li> <li>gives haptic feedback on open with <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate"><code>navigator.vibrate</code></a>
+					(may remain broken due to the iOS longpress workaround, see
+					<a href="https://github.com/fuz-dev/fuz/pull/319">this PR</a>)</li></ul></div></div> </div></div> </section> <section class="svelte-pnhmge"><footer class="panel padded_lg svelte-capnv4"><a class="emoji svelte-capnv4" href="https://github.com/fuz-dev" rel="me">🧶</a> <div class="social svelte-capnv4"><a href="https://github.com/fuz-dev/fuz_contextmenu" rel="me" class="svelte-capnv4"><svg xmlns="http://www.w3.org/2000/svg" aria-label="GitHub icon" viewBox="0 0 1024 1024" fill="none" style="width: var(--spacing_xl7, 64px); height: var(--spacing_xl7, 64px);"><path fill="var(--color, #000)" fill-rule="evenodd" clip-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02
+		15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32
+		12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12
+		11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33
+		11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74
+		5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95
+		7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31
+		12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12
+		7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01
+		13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71
+		14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" transform="scale(64)"></path></svg></a></div> <div class="root_url svelte-capnv4"><a href="https://www.fuz.dev/" rel="me">fuz.dev</a></div> </footer></section></div> </main>  
+			
+			<script>
+				{
+					__sveltekit_1dkoim6 = {
+						base: new URL(".", location).pathname.slice(0, -1),
+						env: {}
+					};
+
+					const element = document.currentScript.parentElement;
+
+					const data = [null,null];
+
+					Promise.all([
+						import("./_app/immutable/entry/start.d4ed49fc.js"),
+						import("./_app/immutable/entry/app.380a7e8f.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 2],
+							data,
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+	</body>
+</html>

@@ -1,5 +1,11 @@
 # @fuz.dev/fuz_contextmenu
 
+## 0.4.0
+
+### Minor Changes
+
+- 476437b: upgrade @fuz.dev/fuz@0.72 from 0.70
+
 ## 0.3.1
 
 ### Patch Changes

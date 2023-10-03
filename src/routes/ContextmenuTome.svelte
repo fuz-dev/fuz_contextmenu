@@ -290,7 +290,7 @@
 
 {#if show_about_dialog}
 	<Dialog on:close={() => (show_about_dialog = false)}>
-		<div class="pane prose padded_xl box text_align_center">
+		<div class="pane prose padded_1 box text_align_center">
 			<h1>About</h1>
 			<blockquote class="width_sm">
 				contextmenu for <a href="https://svelte.dev/">Svelte</a>
@@ -306,7 +306,7 @@
 					>@fuz.dev/fuz_contextmenu</a
 				></code
 			>
-			<div class="prose padded_xl box">
+			<div class="prose padded_1 box">
 				<h2>Color Scheme</h2>
 				<ColorSchemeInput />
 				<h2>Theme</h2>
@@ -318,7 +318,7 @@
 
 <style>
 	section {
-		margin-bottom: var(--spacing_xl4);
+		margin-bottom: var(--spacing_4);
 	}
 	.position {
 		border-radius: var(--border_radius);
@@ -326,7 +326,7 @@
 		display: flex;
 	}
 	.position .icon {
-		font-size: var(--icon_size_xl);
+		font-size: var(--icon_size_1);
 	}
 	.cats {
 		display: flex;

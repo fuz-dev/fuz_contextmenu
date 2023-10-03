@@ -1,23 +1,9 @@
 import type {UserConfig} from 'vite';
 import {sveltekit} from '@sveltejs/kit/vite';
+import {remove_prism_css} from '@fuz.dev/fuz_code/remove_prism_css_vite_plugin.js';
 
 const config: UserConfig = {
-	ssr: {noExternal: ['@fuz.dev/fuz']},
-	plugins: [
-		sveltekit(),
-		// Ignore the default prismjs theme:
-		// TODO try to avoid flashing the original Prism theme during dev
-		{
-			name: 'remove_prism_css',
-			enforce: 'pre',
-			load: (id) => {
-				if (id.endsWith('node_modules/prismjs/themes/prism.min.css')) {
-					return '';
-				}
-				return undefined;
-			},
-		},
-	],
+	plugins: [sveltekit(), remove_prism_css()],
 };
 
 export default config;

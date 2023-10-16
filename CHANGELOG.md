@@ -1,5 +1,11 @@
 # @fuz.dev/fuz_contextmenu
 
+## 0.4.1
+
+### Patch Changes
+
+- 37dc99e: publish $lib/package.ts
+
 ## 0.4.0
 
 ### Minor Changes

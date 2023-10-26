@@ -1,5 +1,11 @@
 # @fuz.dev/fuz_contextmenu
 
+## 0.4.2
+
+### Patch Changes
+
+- ccb0391: upgrade gro to fix svelte default exports
+
 ## 0.4.1
 
 ### Patch Changes

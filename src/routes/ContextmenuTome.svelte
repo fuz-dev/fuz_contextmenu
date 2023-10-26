@@ -5,7 +5,7 @@
 	import Code from '@fuz.dev/fuz_code/Code.svelte';
 	import ColorSchemeInput from '@fuz.dev/fuz/ColorSchemeInput.svelte';
 	import ThemeInput from '@fuz.dev/fuz/ThemeInput.svelte';
-	import TomeDetails from '@fuz.dev/fuz_library/TomeDetails.svelte';
+	import TomeDetail from '@fuz.dev/fuz_library/TomeDetail.svelte';
 	import Dialog from '@fuz.dev/fuz_dialog/Dialog.svelte';
 	import {get_tome} from '@fuz.dev/fuz_library/tome.js';
 
@@ -140,7 +140,7 @@
 <!-- TODO demonstrate usage of a custom `link_component` and `linkProps`  -->
 <Contextmenu {contextmenu} />
 
-<TomeDetails {tome} --library_panel_padding="var(--spacing_lg) 0 0 0">
+<TomeDetail {tome} --library_panel_padding="var(--spacing_lg) 0 0 0">
 	<div slot="header"><h2>{tome.name}</h2></div>
 	<div
 		class="width_full box"
@@ -286,7 +286,7 @@
 			</ul>
 		</div>
 	</div>
-</TomeDetails>
+</TomeDetail>
 
 {#if show_about_dialog}
 	<Dialog on:close={() => (show_about_dialog = false)}>

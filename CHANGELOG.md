@@ -1,5 +1,11 @@
 # @fuz.dev/fuz_contextmenu
 
+## 0.5.1
+
+### Patch Changes
+
+- 1fd9e2a: upgrade `@grogarden/gro` to fix `package.ts`
+
 ## 0.5.0
 
 ### Minor Changes

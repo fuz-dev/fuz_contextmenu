@@ -6,6 +6,7 @@ export const package_json = {
 	name: '@fuz.dev/fuz_contextmenu',
 	description: 'contextmenu for Svelte and Fuz',
 	version: '0.5.1',
+	public: true,
 	type: 'module',
 	license: 'MIT',
 	homepage: 'https://contextmenu.fuz.dev/',

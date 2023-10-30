@@ -1,7 +1,7 @@
 {
   "name": "@fuz.dev/fuz_contextmenu",
   "description": "contextmenu for Svelte and Fuz",
-  "version": "0.4.2",
+  "version": "0.5.0",
   "type": "module",
   "license": "MIT",
   "homepage": "https://contextmenu.fuz.dev/",
@@ -32,11 +32,11 @@
   "devDependencies": {
     "@changesets/changelog-git": "^0.1.14",
     "@feltjs/eslint-config": "^0.4.1",
-    "@fuz.dev/fuz": "^0.75.2",
-    "@fuz.dev/fuz_code": "^0.3.2",
-    "@fuz.dev/fuz_dialog": "^0.3.2",
-    "@fuz.dev/fuz_library": "^0.12.3",
-    "@grogarden/gro": "^0.96.1",
+    "@fuz.dev/fuz": "^0.76.0",
+    "@fuz.dev/fuz_code": "^0.4.0",
+    "@fuz.dev/fuz_dialog": "^0.4.0",
+    "@fuz.dev/fuz_library": "^0.16.0",
+    "@grogarden/gro": "^0.97.0",
     "@grogarden/util": "^0.15.2",
     "@sveltejs/adapter-static": "^2.0.3",
     "@sveltejs/kit": "^1.27.1",
@@ -114,6 +114,102 @@
     "./package.js": {
       "default": "./dist/package.js",
       "types": "./dist/package.d.ts"
+    }
+  },
+  "modules": {
+    "./contextmenu.js": {
+      "path": "contextmenu.ts",
+      "declarations": [
+        {
+          "name": "ContextmenuParams",
+          "kind": "TypeAliasDeclaration"
+        },
+        {
+          "name": "ContextmenuActionParams",
+          "kind": "TypeAliasDeclaration"
+        },
+        {
+          "name": "to_contextmenu_params",
+          "kind": "VariableDeclaration"
+        },
+        {
+          "name": "ItemState",
+          "kind": "TypeAliasDeclaration"
+        },
+        {
+          "name": "EntryState",
+          "kind": "InterfaceDeclaration"
+        },
+        {
+          "name": "SubmenuState",
+          "kind": "InterfaceDeclaration"
+        },
+        {
+          "name": "RootMenuState",
+          "kind": "InterfaceDeclaration"
+        },
+        {
+          "name": "ContextmenuRun",
+          "kind": "InterfaceDeclaration"
+        },
+        {
+          "name": "Contextmenu",
+          "kind": "InterfaceDeclaration"
+        },
+        {
+          "name": "ContextmenuStore",
+          "kind": "InterfaceDeclaration"
+        },
+        {
+          "name": "ContextmenuStoreOptions",
+          "kind": "InterfaceDeclaration"
+        },
+        {
+          "name": "create_contextmenu",
+          "kind": "VariableDeclaration"
+        },
+        {
+          "name": "open_contextmenu",
+          "kind": "VariableDeclaration"
+        },
+        {
+          "name": "set_contextmenu",
+          "kind": "VariableDeclaration"
+        },
+        {
+          "name": "get_contextmenu",
+          "kind": "VariableDeclaration"
+        },
+        {
+          "name": "set_contextmenu_submenu",
+          "kind": "VariableDeclaration"
+        },
+        {
+          "name": "get_contextmenu_submenu",
+          "kind": "VariableDeclaration"
+        },
+        {
+          "name": "set_contextmenu_dimensions",
+          "kind": "VariableDeclaration"
+        },
+        {
+          "name": "get_contextmenu_dimensions",
+          "kind": "VariableDeclaration"
+        }
+      ]
+    },
+    "./package.gen.js": {
+      "path": "package.gen.ts",
+      "declarations": []
+    },
+    "./package.js": {
+      "path": "package.ts",
+      "declarations": [
+        {
+          "name": "package_json",
+          "kind": "VariableDeclaration"
+        }
+      ]
     }
   }
 }

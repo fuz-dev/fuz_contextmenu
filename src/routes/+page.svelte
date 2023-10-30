@@ -2,6 +2,7 @@
 	import LibraryHeader from '@fuz.dev/fuz_library/LibraryHeader.svelte';
 	import LibraryFooter from '@fuz.dev/fuz_library/LibraryFooter.svelte';
 	import {parse_package_meta} from '@fuz.dev/fuz_library/package_meta.js';
+	import {base} from '$app/paths';
 
 	import ContextmenuTome from '$routes/ContextmenuTome.svelte';
 	import {package_json} from '$lib/package.js';
@@ -16,6 +17,9 @@
 		</section>
 		<section>
 			<ContextmenuTome />
+		</section>
+		<section class="box">
+			<a href="{base}/about" class="chip">about</a>
 		</section>
 		<section>
 			<LibraryFooter {pkg} root_url="https://www.fuz.dev/" />

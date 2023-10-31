@@ -5,7 +5,7 @@ import type {PackageJson} from '@grogarden/gro/package_json.js';
 export const package_json = {
 	name: '@fuz.dev/fuz_contextmenu',
 	description: 'contextmenu for Svelte and Fuz',
-	version: '0.5.1',
+	version: '0.6.0',
 	public: true,
 	type: 'module',
 	license: 'MIT',

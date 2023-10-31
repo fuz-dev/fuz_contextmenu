@@ -1,5 +1,15 @@
 # @fuz.dev/fuz_contextmenu
 
+## 0.6.0
+
+### Minor Changes
+
+- e901dd9: rename to `Proper_Snakes`
+
+### Patch Changes
+
+- 0a6e670: add `"public": true,` to `package.json`
+
 ## 0.5.1
 
 ### Patch Changes

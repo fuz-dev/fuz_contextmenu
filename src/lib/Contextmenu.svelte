@@ -4,7 +4,7 @@
 	import {
 		set_contextmenu,
 		set_contextmenu_dimensions,
-		type ContextmenuStore,
+		type Contextmenu_Store,
 		open_contextmenu,
 	} from '$lib/contextmenu.js';
 
@@ -19,7 +19,7 @@
 	 * https://svelte.dev/docs#template-syntax-key
 	 * @nonreactive
 	 */
-	export let contextmenu: ContextmenuStore;
+	export let contextmenu: Contextmenu_Store;
 	set_contextmenu(contextmenu);
 
 	/**

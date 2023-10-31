@@ -10,26 +10,26 @@ import {writable, type Readable, type Writable, get} from 'svelte/store';
 import type {Result} from '@grogarden/util/result.js';
 import {to_array} from '@grogarden/util/array.js';
 
-import ContextmenuLinkEntry from '$lib/ContextmenuLinkEntry.svelte';
-import ContextmenuTextEntry from '$lib/ContextmenuTextEntry.svelte';
+import Contextmenu_Link_Entry from '$lib/Contextmenu_Link_Entry.svelte';
+import Contextmenu_Text_Entry from '$lib/Contextmenu_Text_Entry.svelte';
 
 // TODO rewrite with runes!!!!
 
 // TODO @multiple added this hack with Svelte 4, didn't see an open issue about it
 /* eslint-disable @typescript-eslint/no-redundant-type-constituents */
 
-export type ContextmenuParams<T extends SvelteComponent = SvelteComponent> = {
+export type Contextmenu_Params<T extends SvelteComponent = SvelteComponent> = {
 	component: ComponentType<T>;
 	props: ComponentProps<T>;
 };
 
-export type ContextmenuActionParams =
-	| ContextmenuParams
-	| Array<ContextmenuParams | ComponentProps<ContextmenuTextEntry> | null | undefined>
-	| ComponentProps<ContextmenuTextEntry>;
+export type Contextmenu_Action_Params =
+	| Contextmenu_Params
+	| Array<Contextmenu_Params | ComponentProps<Contextmenu_Text_Entry> | null | undefined>
+	| ComponentProps<Contextmenu_Text_Entry>;
 
 /**
- * This helper function is needed to construct `ContextmenuParams` with type safety.
+ * This helper function is needed to construct `Contextmenu_Params` with type safety.
  * It uses TypeScript's inferred generics for functions,
  * which do not work for plain objects as of v5.0.4.
  * `DialogParams` uses a similar strategy.
@@ -37,59 +37,59 @@ export type ContextmenuActionParams =
 export const to_contextmenu_params = <T extends SvelteComponent>(
 	component: ComponentType<T>,
 	props: ComponentProps<T>,
-): ContextmenuParams<T> => ({component, props});
+): Contextmenu_Params<T> => ({component, props});
 
-type ActivateResult = Result<any, {message?: string}> | any;
+type Activate_Result = Result<any, {message?: string}> | any;
 
-export type ItemState = SubmenuState | EntryState;
-export interface EntryState {
+export type Item_State = Submenu_State | Entry_State;
+export interface Entry_State {
 	is_menu: false; // TODO rename to `type`?
-	menu: SubmenuState | RootMenuState;
+	menu: Submenu_State | Root_Menu_State;
 	selected: boolean;
-	run: Writable<ContextmenuRun>;
+	run: Writable<Contextmenu_Run>;
 	pending: boolean;
 	error_message: string | null;
 	promise: Promise<any> | null;
 }
-export interface SubmenuState {
+export interface Submenu_State {
 	is_menu: true;
-	menu: SubmenuState | RootMenuState;
+	menu: Submenu_State | Root_Menu_State;
 	depth: number;
 	selected: boolean;
-	items: ItemState[];
+	items: Item_State[];
 }
-export interface RootMenuState {
+export interface Root_Menu_State {
 	is_menu: true;
 	menu: null;
 	depth: 1;
-	items: ItemState[];
+	items: Item_State[];
 }
-export interface ContextmenuRun {
-	(): void | Promise<ActivateResult>;
+export interface Contextmenu_Run {
+	(): void | Promise<Activate_Result>;
 }
 
 export interface Contextmenu {
 	open: boolean;
-	params: ContextmenuParams[];
+	params: Contextmenu_Params[];
 	x: number;
 	y: number;
 }
 
-export interface ContextmenuStore extends Readable<Contextmenu> {
+export interface Contextmenu_Store extends Readable<Contextmenu> {
 	layout: Readable<{width: number; height: number}>;
 	initial_layout: Readable<{width: number; height: number}> | undefined;
-	link_component: ComponentType<ContextmenuLinkEntry>;
-	text_component: ComponentType<ContextmenuTextEntry>;
+	link_component: ComponentType<Contextmenu_Link_Entry>;
+	text_component: ComponentType<Contextmenu_Text_Entry>;
 	action: ReturnType<typeof create_contextmenu_action>;
 	error: Writable<string | undefined>;
-	open: (params: ContextmenuParams[], x: number, y: number) => void;
+	open: (params: Contextmenu_Params[], x: number, y: number) => void;
 	close: () => void;
-	activate: (item: ItemState) => boolean | Promise<ActivateResult>;
+	activate: (item: Item_State) => boolean | Promise<Activate_Result>;
 	/**
 	 * Activates the selected entry, or if none, selects the first.
 	 */
-	activate_selected: () => void | boolean | Promise<ActivateResult>;
-	select: (item: ItemState) => void;
+	activate_selected: () => void | boolean | Promise<Activate_Result>;
+	select: (item: Item_State) => void;
 	collapse_selected: () => void;
 	expand_selected: () => void; // opens the selected submenu
 	select_next: () => void;
@@ -97,25 +97,25 @@ export interface ContextmenuStore extends Readable<Contextmenu> {
 	select_first: () => void;
 	select_last: () => void;
 	/**
-	 * Used by `ContextmenuEntry` and custom entry components
+	 * Used by `Contextmenu_Entry` and custom entry components
 	 * @initializes
 	 */
-	add_entry: (run: Writable<ContextmenuRun>) => EntryState;
+	add_entry: (run: Writable<Contextmenu_Run>) => Entry_State;
 	/**
 	 * @initializes
 	 */
-	add_submenu: () => SubmenuState;
+	add_submenu: () => Submenu_State;
 	// These two properties are mutated internally.
 	// If you need reactivity, use `$contextmenu` in a reactive statement to react to all changes, and
 	// then access the mutable non-reactive  `contextmenu.root_menu` and `contextmenu.selections`.
-	// See `ContextmenuEntry.svelte` and `ContextmenuSubmenu.svelte` for reactive usage examples.
-	root_menu: RootMenuState;
-	selections: ItemState[];
+	// See `Contextmenu_Entry.svelte` and `Contextmenu_Submenu.svelte` for reactive usage examples.
+	root_menu: Root_Menu_State;
+	selections: Item_State[];
 }
 
-export interface ContextmenuStoreOptions {
-	link_component?: ComponentType<ContextmenuLinkEntry>;
-	text_component?: ComponentType<ContextmenuTextEntry>;
+export interface Contextmenu_Store_Options {
+	link_component?: ComponentType<Contextmenu_Link_Entry>;
+	text_component?: ComponentType<Contextmenu_Text_Entry>;
 	layout?: Readable<{width: number; height: number}>; // TODO consider making this a prop on `Contextmenu`, and being assigned here
 }
 
@@ -124,14 +124,19 @@ export interface ContextmenuStoreOptions {
  * For external usage see `use:contextmenu.run` scattered throughout the app,
  * and for internal usage see `Contextmenu.svelte`.
  */
-export const create_contextmenu = (options?: ContextmenuStoreOptions): ContextmenuStore => {
-	const link_component = options?.link_component ?? ContextmenuLinkEntry;
-	const text_component = options?.text_component ?? ContextmenuTextEntry;
+export const create_contextmenu = (options?: Contextmenu_Store_Options): Contextmenu_Store => {
+	const link_component = options?.link_component ?? Contextmenu_Link_Entry;
+	const text_component = options?.text_component ?? Contextmenu_Text_Entry;
 	const initial_layout = options?.layout;
 
-	const layout: ContextmenuStore['layout'] = initial_layout || writable({width: 0, height: 0});
-	const root_menu: ContextmenuStore['root_menu'] = {is_menu: true, menu: null, depth: 1, items: []};
-	const selections: ContextmenuStore['selections'] = [];
+	const layout: Contextmenu_Store['layout'] = initial_layout || writable({width: 0, height: 0});
+	const root_menu: Contextmenu_Store['root_menu'] = {
+		is_menu: true,
+		menu: null,
+		depth: 1,
+		items: [],
+	};
+	const selections: Contextmenu_Store['selections'] = [];
 
 	const {update, set: _set, ...rest} = writable<Contextmenu>({open: false, params: [], x: 0, y: 0});
 
@@ -139,7 +144,7 @@ export const create_contextmenu = (options?: ContextmenuStoreOptions): Contextme
 	const force_update = () => update(($) => ({...$}));
 
 	// TODO not mutation, probably
-	const reset_items = (items: ItemState[]): void => {
+	const reset_items = (items: Item_State[]): void => {
 		for (const item of items) {
 			if (item.is_menu) {
 				reset_items(item.items);
@@ -150,9 +155,9 @@ export const create_contextmenu = (options?: ContextmenuStoreOptions): Contextme
 		}
 	};
 
-	const error: ContextmenuStore['error'] = writable(undefined);
+	const error: Contextmenu_Store['error'] = writable(undefined);
 
-	const store: ContextmenuStore = {
+	const store: Contextmenu_Store = {
 		...rest,
 		root_menu,
 		selections,
@@ -236,7 +241,7 @@ export const create_contextmenu = (options?: ContextmenuStoreOptions): Contextme
 			if (selections[selections.length - 1] === item) return;
 			for (const s of selections) s.selected = false;
 			selections.length = 0;
-			let i: ItemState | RootMenuState = item;
+			let i: Item_State | Root_Menu_State = item;
 			do {
 				i.selected = true;
 				selections.unshift(i);
@@ -277,7 +282,7 @@ export const create_contextmenu = (options?: ContextmenuStoreOptions): Contextme
 		},
 		add_entry: (run) => {
 			const menu = get_contextmenu_submenu() || root_menu;
-			const entry: EntryState = {
+			const entry: Entry_State = {
 				is_menu: false,
 				menu,
 				selected: false,
@@ -294,7 +299,7 @@ export const create_contextmenu = (options?: ContextmenuStoreOptions): Contextme
 		},
 		add_submenu: () => {
 			const menu = get_contextmenu_submenu() || root_menu;
-			const submenu: SubmenuState = {
+			const submenu: Submenu_State = {
 				is_menu: true,
 				menu,
 				depth: menu.depth + 1,
@@ -316,17 +321,17 @@ export const create_contextmenu = (options?: ContextmenuStoreOptions): Contextme
 // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset
 const CONTEXTMENU_DATASET_KEY = 'contextmenu';
 const CONTEXTMENU_DOM_QUERY = `a,[data-${CONTEXTMENU_DATASET_KEY}]`;
-const contextmenu_cache = new Map<string, ContextmenuParams[]>();
+const contextmenu_cache = new Map<string, Contextmenu_Params[]>();
 let cache_key_counter = 0;
 
 const create_contextmenu_action =
-	(text_component: ComponentType<ContextmenuTextEntry>) =>
-	(el: HTMLElement | SVGElement, params: ContextmenuActionParams | null | undefined) => {
+	(text_component: ComponentType<Contextmenu_Text_Entry>) =>
+	(el: HTMLElement | SVGElement, params: Contextmenu_Action_Params | null | undefined) => {
 		const key = cache_key_counter++ + '';
 		el.dataset[CONTEXTMENU_DATASET_KEY] = key;
 		contextmenu_cache.set(key, resolve_contextmenu_params(params, text_component));
 		return {
-			update: (p: ContextmenuActionParams | null | undefined) => {
+			update: (p: Contextmenu_Action_Params | null | undefined) => {
 				contextmenu_cache.set(key, resolve_contextmenu_params(p, text_component));
 			},
 			destroy: () => {
@@ -336,9 +341,9 @@ const create_contextmenu_action =
 	};
 
 const resolve_contextmenu_params = (
-	params: ContextmenuActionParams | null | undefined,
-	text_component: ComponentType<ContextmenuTextEntry>,
-): ContextmenuParams[] =>
+	params: Contextmenu_Action_Params | null | undefined,
+	text_component: ComponentType<Contextmenu_Text_Entry>,
+): Contextmenu_Params[] =>
 	to_array(params)
 		.filter(Boolean)
 		.map((p: any) =>
@@ -360,9 +365,9 @@ export const open_contextmenu = (
 	target: HTMLElement | SVGElement,
 	x: number,
 	y: number,
-	contextmenu: ContextmenuStore,
+	contextmenu: Contextmenu_Store,
 ): boolean => {
-	const params = queryContextmenuParams(target, contextmenu);
+	const params = query_contextmenu_params(target, contextmenu);
 	if (!params?.length) return false;
 	contextmenu.open(params, x, y);
 	// Unfortunately `vibrate` this gets blocked by some browsers the way we're doing it
@@ -373,15 +378,15 @@ export const open_contextmenu = (
 	return true;
 };
 
-const queryContextmenuParams = (
+const query_contextmenu_params = (
 	target: HTMLElement | SVGElement,
-	contextmenu: ContextmenuStore,
-): null | ContextmenuParams[] => {
+	contextmenu: Contextmenu_Store,
+): null | Contextmenu_Params[] => {
 	const {link_component, text_component} = contextmenu;
-	let params: null | ContextmenuParams[] = null;
+	let params: null | Contextmenu_Params[] = null;
 	// crawl DOM for contextmenu entries
 	let el: HTMLElement | SVGElement | null | undefined = target;
-	let cache_key: string, cached: ContextmenuParams[] | undefined;
+	let cache_key: string, cached: Contextmenu_Params[] | undefined;
 	while ((el = el?.closest(CONTEXTMENU_DOM_QUERY))) {
 		if ((cache_key = el.dataset[CONTEXTMENU_DATASET_KEY]!)) {
 			if (!params) params = [];
@@ -424,14 +429,14 @@ const queryContextmenuParams = (
 };
 
 const CONTEXTMENU_STORE_KEY = Symbol();
-export const set_contextmenu = (contextmenu: ContextmenuStore): ContextmenuStore =>
+export const set_contextmenu = (contextmenu: Contextmenu_Store): Contextmenu_Store =>
 	setContext(CONTEXTMENU_STORE_KEY, contextmenu);
-export const get_contextmenu = (): ContextmenuStore => getContext(CONTEXTMENU_STORE_KEY);
+export const get_contextmenu = (): Contextmenu_Store => getContext(CONTEXTMENU_STORE_KEY);
 
 const CONTEXTMENU_STATE_KEY = Symbol();
-export const set_contextmenu_submenu = (submenu: SubmenuState): SubmenuState =>
+export const set_contextmenu_submenu = (submenu: Submenu_State): Submenu_State =>
 	setContext(CONTEXTMENU_STATE_KEY, submenu);
-export const get_contextmenu_submenu = (): SubmenuState | undefined =>
+export const get_contextmenu_submenu = (): Submenu_State | undefined =>
 	getContext(CONTEXTMENU_STATE_KEY);
 
 const CONTEXTMENU_DIMENSIONS_STORE_KEY = Symbol();

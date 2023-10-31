@@ -7,7 +7,7 @@
 	import 'prism-svelte';
 
 	import {set_devmode} from '@fuz.dev/fuz_library/devmode.js';
-	import DevmodeControls from '@fuz.dev/fuz_library/DevmodeControls.svelte';
+	import Devmode_Controls from '@fuz.dev/fuz_library/Devmode_Controls.svelte';
 	import Themed from '@fuz.dev/fuz/Themed.svelte';
 	import {set_tomes} from '@fuz.dev/fuz_library/tome.js';
 
@@ -21,4 +21,4 @@
 <Themed>
 	<slot />
 </Themed>
-<DevmodeControls {devmode} />
+<Devmode_Controls {devmode} />

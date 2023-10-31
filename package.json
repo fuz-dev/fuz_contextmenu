@@ -33,12 +33,12 @@
   "devDependencies": {
     "@changesets/changelog-git": "^0.1.14",
     "@feltjs/eslint-config": "^0.4.1",
-    "@fuz.dev/fuz": "^0.77.1",
-    "@fuz.dev/fuz_code": "^0.4.2",
-    "@fuz.dev/fuz_dialog": "^0.4.2",
-    "@fuz.dev/fuz_library": "^0.17.0",
-    "@grogarden/gro": "^0.98.1",
-    "@grogarden/util": "^0.15.2",
+    "@fuz.dev/fuz": "^0.79.0",
+    "@fuz.dev/fuz_code": "^0.4.3",
+    "@fuz.dev/fuz_dialog": "^0.5.0",
+    "@fuz.dev/fuz_library": "^0.18.0",
+    "@grogarden/gro": "^0.98.3",
+    "@grogarden/util": "^0.15.4",
     "@sveltejs/adapter-static": "^2.0.3",
     "@sveltejs/kit": "^1.27.2",
     "@sveltejs/package": "^2.2.2",
@@ -79,6 +79,26 @@
     ]
   },
   "exports": {
+    "./Contextmenu_Entry.svelte": {
+      "svelte": "./dist/Contextmenu_Entry.svelte",
+      "default": "./dist/Contextmenu_Entry.svelte",
+      "types": "./dist/Contextmenu_Entry.svelte.d.ts"
+    },
+    "./Contextmenu_Link_Entry.svelte": {
+      "svelte": "./dist/Contextmenu_Link_Entry.svelte",
+      "default": "./dist/Contextmenu_Link_Entry.svelte",
+      "types": "./dist/Contextmenu_Link_Entry.svelte.d.ts"
+    },
+    "./Contextmenu_Submenu.svelte": {
+      "svelte": "./dist/Contextmenu_Submenu.svelte",
+      "default": "./dist/Contextmenu_Submenu.svelte",
+      "types": "./dist/Contextmenu_Submenu.svelte.d.ts"
+    },
+    "./Contextmenu_Text_Entry.svelte": {
+      "svelte": "./dist/Contextmenu_Text_Entry.svelte",
+      "default": "./dist/Contextmenu_Text_Entry.svelte",
+      "types": "./dist/Contextmenu_Text_Entry.svelte.d.ts"
+    },
     "./Contextmenu.svelte": {
       "svelte": "./dist/Contextmenu.svelte",
       "default": "./dist/Contextmenu.svelte",
@@ -87,26 +107,6 @@
     "./contextmenu.js": {
       "default": "./dist/contextmenu.js",
       "types": "./dist/contextmenu.d.ts"
-    },
-    "./ContextmenuEntry.svelte": {
-      "svelte": "./dist/ContextmenuEntry.svelte",
-      "default": "./dist/ContextmenuEntry.svelte",
-      "types": "./dist/ContextmenuEntry.svelte.d.ts"
-    },
-    "./ContextmenuLinkEntry.svelte": {
-      "svelte": "./dist/ContextmenuLinkEntry.svelte",
-      "default": "./dist/ContextmenuLinkEntry.svelte",
-      "types": "./dist/ContextmenuLinkEntry.svelte.d.ts"
-    },
-    "./ContextmenuSubmenu.svelte": {
-      "svelte": "./dist/ContextmenuSubmenu.svelte",
-      "default": "./dist/ContextmenuSubmenu.svelte",
-      "types": "./dist/ContextmenuSubmenu.svelte.d.ts"
-    },
-    "./ContextmenuTextEntry.svelte": {
-      "svelte": "./dist/ContextmenuTextEntry.svelte",
-      "default": "./dist/ContextmenuTextEntry.svelte",
-      "types": "./dist/ContextmenuTextEntry.svelte.d.ts"
     },
     "./package.gen.js": {
       "default": "./dist/package.gen.js",

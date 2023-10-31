@@ -3,20 +3,20 @@
 	import {crossfade} from 'svelte/transition';
 	import {quintOut} from 'svelte/easing';
 	import Code from '@fuz.dev/fuz_code/Code.svelte';
-	import ColorSchemeInput from '@fuz.dev/fuz/ColorSchemeInput.svelte';
-	import ThemeInput from '@fuz.dev/fuz/ThemeInput.svelte';
-	import TomeDetail from '@fuz.dev/fuz_library/TomeDetail.svelte';
+	import Color_Scheme_Input from '@fuz.dev/fuz/Color_Scheme_Input.svelte';
+	import Theme_Input from '@fuz.dev/fuz/Theme_Input.svelte';
+	import Tome_Detail from '@fuz.dev/fuz_library/Tome_Detail.svelte';
 	import Dialog from '@fuz.dev/fuz_dialog/Dialog.svelte';
 	import {get_tome} from '@fuz.dev/fuz_library/tome.js';
 
 	import Contextmenu from '$lib/Contextmenu.svelte';
 	import {create_contextmenu, set_contextmenu, to_contextmenu_params} from '$lib/contextmenu.js';
-	import CatContextmenu from '$routes/CatContextmenu.svelte';
-	import AppContextmenu from '$routes/AppContextmenu.svelte';
-	import HomeContextmenu from '$routes/HomeContextmenu.svelte';
-	import AdventureContextmenu from '$routes/AdventureContextmenu.svelte';
-	import CatView from '$routes/CatView.svelte';
-	import type {Cat, CatPosition, HistoryItem} from '$routes/helpers.js';
+	import Cat_Contextmenu from '$routes/Cat_Contextmenu.svelte';
+	import App_Contextmenu from '$routes/App_Contextmenu.svelte';
+	import Home_Contextmenu from '$routes/Home_Contextmenu.svelte';
+	import Adventure_Contextmenu from '$routes/Adventure_Contextmenu.svelte';
+	import Cat_View from '$routes/Cat_View.svelte';
+	import type {Cat, Cat_Position, History_Item} from '$routes/helpers.js';
 
 	const LIBRARY_ITEM_NAME = 'Contextmenu';
 
@@ -35,9 +35,9 @@
 	const alyssa = 'Alyssa';
 	const ben = 'Ben';
 
-	const INITIAL_POSITION: CatPosition = 'home';
-	let alyssa_position: CatPosition = INITIAL_POSITION;
-	let ben_position: CatPosition = INITIAL_POSITION;
+	const INITIAL_POSITION: Cat_Position = 'home';
+	let alyssa_position: Cat_Position = INITIAL_POSITION;
+	let ben_position: Cat_Position = INITIAL_POSITION;
 
 	$: alyssa_icon = alyssa_position === ben_position ? '😺' : '😾';
 	$: ben_icon = alyssa_position === ben_position ? '😸' : '😿';
@@ -85,7 +85,7 @@
 		show_about_dialog = !show_about_dialog;
 	};
 
-	const act = (item: HistoryItem): void => {
+	const act = (item: History_Item): void => {
 		switch (item.type) {
 			case 'call_cats_adventure': {
 				alyssa_position = 'adventure';
@@ -140,16 +140,16 @@
 <!-- TODO demonstrate usage of a custom `link_component` and `linkProps`  -->
 <Contextmenu {contextmenu} />
 
-<TomeDetail {tome} --library_panel_padding="var(--spacing_lg) 0 0 0">
+<Tome_Detail {tome} --library_panel_padding="var(--spacing_lg) 0 0 0">
 	<div slot="header"><h2>{tome.name}</h2></div>
 	<div
 		class="width_full box"
 		use:contextmenu.action={[
-			// params type of the action is `ContextmenuActionParams`
+			// params type of the action is `Contextmenu_Action_Params`
 			can_reset ? {run: reset, content: 'Reset', icon: '↻'} : null,
 			// you can pass multiple items in an array or a single object:
 			// simple text action with with a `run` callback and `icon`:
-			to_contextmenu_params(AppContextmenu, {toggle_about_dialog}),
+			to_contextmenu_params(App_Contextmenu, {toggle_about_dialog}),
 			// you can pass `null` or `undefined` for convenience:
 			null,
 			undefined,
@@ -164,7 +164,7 @@
 		<section>
 			<div
 				class="position home"
-				use:contextmenu.action={to_contextmenu_params(HomeContextmenu, {
+				use:contextmenu.action={to_contextmenu_params(Home_Contextmenu, {
 					act,
 					home_cats,
 					adventure_cats,
@@ -178,21 +178,21 @@
 							in:receive={{key: name}}
 							out:send={{key: name}}
 							animate:flip
-							use:contextmenu.action={to_contextmenu_params(CatContextmenu, {
+							use:contextmenu.action={to_contextmenu_params(Cat_Contextmenu, {
 								act,
 								name,
 								icon,
 								position,
 							})}
 						>
-							<CatView {name} {icon} />
+							<Cat_View {name} {icon} />
 						</div>
 					{/each}
 				</div>
 			</div>
 			<div
 				class="position adventure"
-				use:contextmenu.action={to_contextmenu_params(AdventureContextmenu, {
+				use:contextmenu.action={to_contextmenu_params(Adventure_Contextmenu, {
 					act,
 					home_cats,
 					adventure_cats,
@@ -206,14 +206,14 @@
 							in:receive={{key: name}}
 							out:send={{key: name}}
 							animate:flip
-							use:contextmenu.action={to_contextmenu_params(CatContextmenu, {
+							use:contextmenu.action={to_contextmenu_params(Cat_Contextmenu, {
 								act,
 								name,
 								icon,
 								position,
 							})}
 						>
-							<CatView {name} {icon} />
+							<Cat_View {name} {icon} />
 						</div>
 					{/each}
 				</div>
@@ -286,7 +286,7 @@
 			</ul>
 		</div>
 	</div>
-</TomeDetail>
+</Tome_Detail>
 
 {#if show_about_dialog}
 	<Dialog on:close={() => (show_about_dialog = false)}>
@@ -308,9 +308,9 @@
 			>
 			<div class="prose padded_1 box">
 				<h2>Color Scheme</h2>
-				<ColorSchemeInput />
+				<Color_Scheme_Input />
 				<h2>Theme</h2>
-				<ThemeInput />
+				<Theme_Input />
 			</div>
 		</div>
 	</Dialog>

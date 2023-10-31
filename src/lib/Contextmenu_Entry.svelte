@@ -1,10 +1,10 @@
 <script lang="ts">
 	import {writable} from 'svelte/store';
-	import PendingAnimation from '@fuz.dev/fuz_library/PendingAnimation.svelte';
+	import Pending_Animation from '@fuz.dev/fuz_library/Pending_Animation.svelte';
 
-	import {get_contextmenu, type ContextmenuRun} from '$lib/contextmenu.js';
+	import {get_contextmenu, type Contextmenu_Run} from '$lib/contextmenu.js';
 
-	export let run: ContextmenuRun;
+	export let run: Contextmenu_Run;
 
 	// This store makes `run` reactive
 	// because it's a param to `contextmenu.add_entry` which @initializes.
@@ -44,7 +44,7 @@
 	<div class="content">
 		<div class="icon"><slot name="icon" /></div>
 		<div class="title"><slot /></div>
-		{#if pending}<PendingAnimation />{:else if error_message}⚠️{/if}
+		{#if pending}<Pending_Animation />{:else if error_message}⚠️{/if}
 	</div>
 </li>
 

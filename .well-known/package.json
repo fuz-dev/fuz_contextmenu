@@ -33,20 +33,20 @@
   "devDependencies": {
     "@changesets/changelog-git": "^0.1.14",
     "@feltjs/eslint-config": "^0.4.1",
-    "@fuz.dev/fuz": "^0.79.1",
+    "@fuz.dev/fuz": "^0.79.3",
     "@fuz.dev/fuz_code": "^0.4.3",
     "@fuz.dev/fuz_dialog": "^0.5.0",
-    "@fuz.dev/fuz_library": "^0.19.1",
-    "@grogarden/gro": "^0.100.1",
+    "@fuz.dev/fuz_library": "^0.20.0",
+    "@grogarden/gro": "^0.101.0",
     "@grogarden/util": "^0.16.0",
     "@sveltejs/adapter-static": "^2.0.3",
-    "@sveltejs/kit": "^1.27.2",
+    "@sveltejs/kit": "^1.27.3",
     "@sveltejs/package": "^2.2.2",
-    "@types/prismjs": "^1.26.2",
-    "@typescript-eslint/eslint-plugin": "^6.9.1",
-    "@typescript-eslint/parser": "^6.9.1",
-    "eslint": "^8.52.0",
-    "eslint-plugin-svelte": "^2.34.0",
+    "@types/prismjs": "^1.26.3",
+    "@typescript-eslint/eslint-plugin": "^6.10.0",
+    "@typescript-eslint/parser": "^6.10.0",
+    "eslint": "^8.53.0",
+    "eslint-plugin-svelte": "^2.35.0",
     "prettier": "^3.0.3",
     "prettier-plugin-svelte": "^3.0.3",
     "prism-svelte": "^0.5.0",
@@ -143,79 +143,79 @@
       "declarations": [
         {
           "name": "Contextmenu_Params",
-          "kind": "TypeAliasDeclaration"
+          "kind": "type"
         },
         {
           "name": "Contextmenu_Action_Params",
-          "kind": "TypeAliasDeclaration"
+          "kind": "type"
         },
         {
           "name": "to_contextmenu_params",
-          "kind": "VariableDeclaration"
+          "kind": "function"
         },
         {
           "name": "Item_State",
-          "kind": "TypeAliasDeclaration"
+          "kind": "type"
         },
         {
           "name": "Entry_State",
-          "kind": "InterfaceDeclaration"
+          "kind": "type"
         },
         {
           "name": "Submenu_State",
-          "kind": "InterfaceDeclaration"
+          "kind": "type"
         },
         {
           "name": "Root_Menu_State",
-          "kind": "InterfaceDeclaration"
+          "kind": "type"
         },
         {
           "name": "Contextmenu_Run",
-          "kind": "InterfaceDeclaration"
+          "kind": "type"
         },
         {
           "name": "Contextmenu",
-          "kind": "InterfaceDeclaration"
+          "kind": "type"
         },
         {
           "name": "Contextmenu_Store",
-          "kind": "InterfaceDeclaration"
+          "kind": "type"
         },
         {
           "name": "Contextmenu_Store_Options",
-          "kind": "InterfaceDeclaration"
+          "kind": "type"
         },
         {
           "name": "create_contextmenu",
-          "kind": "VariableDeclaration"
+          "kind": "function"
         },
         {
           "name": "open_contextmenu",
-          "kind": "VariableDeclaration"
+          "kind": "function"
         },
         {
           "name": "set_contextmenu",
-          "kind": "VariableDeclaration"
+          "kind": "function"
         },
         {
           "name": "get_contextmenu",
-          "kind": "VariableDeclaration"
+          "kind": "function"
         },
         {
           "name": "set_contextmenu_submenu",
-          "kind": "VariableDeclaration"
+          "kind": "function"
         },
         {
           "name": "get_contextmenu_submenu",
-          "kind": "VariableDeclaration"
+          "kind": "function"
         },
         {
           "name": "set_contextmenu_dimensions",
-          "kind": "VariableDeclaration"
+          "kind": "function"
         },
         {
           "name": "get_contextmenu_dimensions",
-          "kind": "VariableDeclaration"
+          "kind": "function"
         }
       ]
     },
@@ -228,7 +228,7 @@
       "declarations": [
         {
           "name": "package_json",
-          "kind": "VariableDeclaration"
+          "kind": "variable"
         }
       ]
     }

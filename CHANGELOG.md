@@ -32,7 +32,7 @@
 
 ### Patch Changes
 
-- 37dc99e: publish $lib/package.ts
+- 37dc99e: publish $routes/package.ts
 
 ## 0.4.0
 

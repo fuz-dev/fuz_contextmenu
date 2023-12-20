@@ -1,6 +1,6 @@
 {
   "name": "@fuz.dev/fuz_contextmenu",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "modules": {
     "./Contextmenu_Entry.svelte": {
       "path": "Contextmenu_Entry.svelte",
@@ -100,23 +100,6 @@
         {
           "name": "get_contextmenu_dimensions",
           "kind": "function"
-        }
-      ]
-    },
-    "./package.gen.js": {
-      "path": "package.gen.ts",
-      "declarations": []
-    },
-    "./package.js": {
-      "path": "package.ts",
-      "declarations": [
-        {
-          "name": "package_json",
-          "kind": "variable"
-        },
-        {
-          "name": "src_json",
-          "kind": "variable"
         }
       ]
     }

@@ -6,7 +6,7 @@ import type {Src_Json} from '@grogarden/gro/src_json.js';
 export const package_json = {
 	name: '@fuz.dev/fuz_contextmenu',
 	description: 'contextmenu for Svelte and Fuz',
-	version: '0.6.0',
+	version: '0.7.0',
 	public: true,
 	type: 'module',
 	license: 'MIT',
@@ -92,7 +92,7 @@ export const package_json = {
 
 export const src_json = {
 	name: '@fuz.dev/fuz_contextmenu',
-	version: '0.6.0',
+	version: '0.7.0',
 	modules: {
 		'./Contextmenu_Entry.svelte': {path: 'Contextmenu_Entry.svelte', declarations: []},
 		'./Contextmenu_Link_Entry.svelte': {path: 'Contextmenu_Link_Entry.svelte', declarations: []},

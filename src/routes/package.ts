@@ -13,7 +13,7 @@ export const package_json = {
 	homepage: 'https://contextmenu.fuz.dev/',
 	repository: 'https://github.com/fuz-dev/fuz_contextmenu',
 	author: {name: 'Ryan Atkinson', email: 'mail@ryanatkn.com', url: 'https://www.ryanatkn.com/'},
-	engines: {node: '>=20.7'},
+	engines: {node: '>=20.10'},
 	scripts: {
 		start: 'gro dev',
 		dev: 'gro dev',

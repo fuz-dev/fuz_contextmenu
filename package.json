@@ -13,7 +13,7 @@
     "url": "https://www.ryanatkn.com/"
   },
   "engines": {
-    "node": ">=20.7"
+    "node": ">=20.10"
   },
   "scripts": {
     "start": "gro dev",
